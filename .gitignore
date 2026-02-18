@@ -44,5 +44,5 @@ Thumbs.db
 # Personal documents
 *.pdf
 
-# Claude Code
-.claude/
+# Claude Code — tracked intentionally (skills, settings)
+# .claude/

@@ -45,9 +45,35 @@
   border: 3px solid var(--bg-primary);
   box-shadow: 0 0 10px rgba(0, 212, 170, 0.4);
   z-index: 2;
+  animation: dot-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 212, 170, 0.4); }
+  50%       { box-shadow: 0 0 18px rgba(0, 212, 170, 0.9), 0 0 36px rgba(0, 212, 170, 0.3); }
 }
 
 .timeline-card {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--gradient);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s ease;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+
   .timeline-period {
     font-size: 0.85rem;
     color: var(--accent);

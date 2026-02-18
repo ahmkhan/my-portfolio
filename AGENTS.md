@@ -4,8 +4,10 @@
 **Purpose:** Create and modify Angular components for the portfolio.
 - Use standalone components with signals (no NgModules)
 - Follow the existing pattern: `component.ts`, `component.html`, `component.scss`
-- Import `ScrollAnimateDirective` for scroll-triggered animations
+- Import `ScrollAnimateDirective` for scroll-triggered animations — it adds `animate-visible` class via IntersectionObserver
 - Use data from `src/app/data/portfolio-data.ts` — never hardcode content in templates
+- Exception: `projects.component.ts` has its own `projects` array
+- `AppComponent` has `HostListener('window:scroll')`, `ngOnInit()` (loader removal), and `scrollToTop()` — be aware when modifying it
 - Keep SCSS scoped to the component, use CSS variables from `styles.scss`
 
 ## Agent: Style & Design
@@ -14,14 +16,16 @@
 - Accent color: `var(--accent)` / `var(--gradient)` — do not introduce new colors without approval
 - Responsive: test at 375px (mobile), 768px (tablet), 1024px+ (desktop)
 - Animations via CSS transitions + `animate-on-scroll` / `animate-visible` classes
+- Scroll-triggered value animations: use CSS custom properties (e.g. `[style]="'--skill-level:' + val + '%'"`) then `.parent.animate-visible .child { property: var(--skill-level) }` — avoids inline style specificity conflicts
 - No external CSS frameworks (Bootstrap, Tailwind, etc.)
 
 ## Agent: Content Editor
 **Purpose:** Update portfolio content and data.
 - All content lives in `src/app/data/portfolio-data.ts`
+- Exception: projects are in `src/app/components/projects/projects.component.ts` (`projects` array)
 - Ensure accuracy — cross-reference `My resume.pdf` and `LinkedIn-Profile.pdf`
 - Keep the tone professional and concise
-- Update the Agentic AI section when new topics are learned
+- Update the Agentic AI section in CLAUDE.md when new topics are learned
 
 ## Agent: Build & Deploy
 **Purpose:** Handle builds and deployment tasks.
@@ -31,6 +35,7 @@
 - Live URL: https://ahmkhan.github.io/my-portfolio/
 - Component style budget: 6kB warning / 10kB error (configured in `angular.json`)
 - No SSR — static site only
+- **Static assets** (images, SVGs, favicons) go in `public/` — Angular copies them to the dist root. Do NOT put them in `src/` expecting them to be served
 
 ## Shared Rules
 1. Do not introduce technologies outside Ahmer's expertise without discussion
@@ -38,4 +43,4 @@
 3. Code should be clean enough for Ahmer to modify independently
 4. Always refer to CLAUDE.md for project context
 5. Ask before assuming on design or technical decisions
-6. **Self-Maintenance:** After every session where changes are made, review and update both `CLAUDE.md` and `AGENTS.md` to reflect any new skills, components, sections, structural changes, or owner information. Do not wait for the user to ask — this is mandatory
+6. **Self-Maintenance:** After every session where changes are made, run the `/sync-docs` skill to update both `CLAUDE.md` and `AGENTS.md`. Do not wait to be asked — this is mandatory. The skill file is at `.claude/skills/sync-docs.md`.

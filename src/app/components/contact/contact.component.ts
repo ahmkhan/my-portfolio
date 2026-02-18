@@ -19,6 +19,11 @@ export class ContactComponent {
 
   onSubmit(): void {
     if (this.formData.name && this.formData.email && this.formData.message) {
+      const subject = encodeURIComponent(`Portfolio Contact from ${this.formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${this.formData.name}\nEmail: ${this.formData.email}\n\nMessage:\n${this.formData.message}`
+      );
+      window.location.href = `mailto:${this.contact.email}?subject=${subject}&body=${body}`;
       this.formSubmitted = true;
     }
   }

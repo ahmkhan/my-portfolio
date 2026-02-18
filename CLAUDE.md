@@ -37,32 +37,38 @@
 
 ## Project Structure
 ```
+public/
+├── favicon.ico                          # Legacy favicon (fallback)
+└── favicon.svg                          # Primary SVG favicon (dark bg + cyan AK)
 src/
 ├── styles.scss                          # Global design system (variables, reset, animations)
-├── index.html                           # Entry point with Google Fonts
+├── index.html                           # Entry point — meta/OG tags, loader, Google Fonts
 ├── app/
-│   ├── app.component.ts/html/scss       # Root layout composing all sections
+│   ├── app.component.ts/html/scss       # Root layout — back-to-top button, page loader removal
 │   ├── data/portfolio-data.ts           # All content as typed constants
 │   ├── directives/
-│   │   └── scroll-animate.directive.ts  # IntersectionObserver scroll animations
+│   │   └── scroll-animate.directive.ts  # IntersectionObserver — adds 'animate-visible' class
 │   ├── services/
 │   │   └── scroll.service.ts            # Smooth scroll + active section tracking (signals)
 │   └── components/
-│       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger
-│       ├── hero/                        # Full-screen, CSS particles, typing animation
+│       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo
+│       ├── hero/                        # Full-screen — dot grid bg, glow blob, orbit ring, particles, typing
 │       ├── about/                       # Professional summary + stats cards
-│       ├── experience/                  # Vertical timeline, 5 roles
-│       ├── skills/                      # Animated skill bars by category
+│       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
+│       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
 │       ├── agentic-ai/                  # Learning journey topic cards
-│       ├── projects/                    # Project showcase grid (expandable)
-│       └── contact/                     # Contact form + footer + social links
+│       ├── projects/                    # 3 real projects (Live / Private / In Progress)
+│       └── contact/                     # Contact form (mailto:) + footer + social links
 ```
 
 ## Design System
 - **Dark theme:** `#0a0a0f` background, `#1a1a2e` cards
 - **Accent:** Cyan/Teal `#00d4aa` with gradient to `#00b4d8`
 - **Animations:** CSS transitions + IntersectionObserver directive (no Angular Animations module)
+- **Scroll animation pattern:** directive adds `animate-visible` class → CSS transitions fire
+- **Skill bar trick:** CSS custom property `--skill-level` set on `.skill-item`, `.skill-category.animate-visible .skill-fill { width: var(--skill-level) }` triggers on scroll
 - **Responsive breakpoints:** mobile (768px), tablet (1024px), desktop (1025px+)
+- **Static assets:** place in `public/` folder (not `src/`), served at root by Angular
 
 ## Guidelines for AI Agents
 - See [AGENTS.md](./AGENTS.md) for sub-agent roles
@@ -71,8 +77,11 @@ src/
 - Keep the design dark-themed, professional, and responsive
 - Do not add external CSS frameworks or libraries without discussion
 - All content data lives in `src/app/data/portfolio-data.ts` — edit there, not in templates
+- Exception: `projects.component.ts` holds its own `projects` array (not in portfolio-data.ts)
 - Content should be accurate to the information in the PDF files
-- **IMPORTANT — Self-Maintenance:** After every session where changes are made (new skills, new components, new sections, structural changes, design changes, or any new information about the owner), you MUST review and update both `CLAUDE.md` and `AGENTS.md` to keep them accurate and useful for future sessions. Do not wait for the user to ask.
+- Static assets (images, icons, favicons) go in `public/` — Angular copies these to dist root
+- Contact form uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
+- **IMPORTANT — Self-Maintenance:** After every session where changes are made, run the `/sync-docs` skill to update both `CLAUDE.md` and `AGENTS.md`. Do NOT wait for the user to ask. If the session is ending (user says "deploy", "done", "push") and docs haven't been updated — do it immediately.
 
 ## Agentic AI Learning Progress
 Topics covered so far:
@@ -81,5 +90,6 @@ Topics covered so far:
 - CLAUDE.md and AGENTS.md files
 - Skills, Sub Agents, Plugins, Hooks, MCP
 - Building a portfolio website with Claude Code
+- Iterative improvement — fixing real UX issues (forms, animations, favicons, SEO)
 
 > This section will be updated as learning progresses.

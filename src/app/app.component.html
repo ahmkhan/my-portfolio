@@ -8,3 +8,11 @@
   <app-projects />
   <app-contact />
 </main>
+
+<button
+  class="back-to-top"
+  [class.visible]="showBackToTop"
+  (click)="scrollToTop()"
+  aria-label="Back to top">
+  ↑
+</button>

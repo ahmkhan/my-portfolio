@@ -5,6 +5,62 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+
+  // Dot grid + central glow in one pseudo-element
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(0, 212, 170, 0.14) 1px, transparent 1px),
+      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0, 212, 170, 0.07) 0%, rgba(0, 180, 216, 0.04) 45%, transparent 100%);
+    background-size: 44px 44px, 100% 100%;
+    z-index: 0;
+  }
+}
+
+// Orbit ring
+.hero-orbit {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border: 1px solid rgba(0, 212, 170, 0.15);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit-spin 30s linear infinite;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    top: -4px;
+    left: 50%;
+    margin-left: -4px;
+    box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(0, 212, 170, 0.5);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--accent-secondary);
+    border-radius: 50%;
+    bottom: -2.5px;
+    left: 30%;
+    box-shadow: 0 0 8px var(--accent-secondary);
+  }
+}
+
+@keyframes orbit-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 // CSS Particle background
@@ -17,28 +73,28 @@
 
 .particle {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   background: var(--accent);
   border-radius: 50%;
   opacity: 0;
   animation: float-particle 12s infinite;
 
-  &[data-i="1"]  { left: 12%; top: 28%; animation-delay: 0.8s;  animation-duration: 14s; width: 3px; height: 3px; }
-  &[data-i="2"]  { left: 67%; top: 15%; animation-delay: 1.6s;  animation-duration: 12s; width: 4px; height: 4px; }
-  &[data-i="3"]  { left: 34%; top: 72%; animation-delay: 2.4s;  animation-duration: 16s; width: 2px; height: 2px; }
-  &[data-i="4"]  { left: 85%; top: 45%; animation-delay: 3.2s;  animation-duration: 13s; width: 5px; height: 5px; }
-  &[data-i="5"]  { left: 5%;  top: 88%; animation-delay: 4.0s;  animation-duration: 15s; width: 3px; height: 3px; }
-  &[data-i="6"]  { left: 52%; top: 33%; animation-delay: 4.8s;  animation-duration: 11s; width: 4px; height: 4px; }
-  &[data-i="7"]  { left: 78%; top: 67%; animation-delay: 5.6s;  animation-duration: 17s; width: 2px; height: 2px; }
-  &[data-i="8"]  { left: 21%; top: 51%; animation-delay: 6.4s;  animation-duration: 14s; width: 3px; height: 3px; }
-  &[data-i="9"]  { left: 91%; top: 12%; animation-delay: 7.2s;  animation-duration: 12s; width: 5px; height: 5px; }
-  &[data-i="10"] { left: 43%; top: 90%; animation-delay: 8.0s;  animation-duration: 16s; width: 4px; height: 4px; }
-  &[data-i="11"] { left: 8%;  top: 42%; animation-delay: 8.8s;  animation-duration: 13s; width: 3px; height: 3px; }
-  &[data-i="12"] { left: 60%; top: 78%; animation-delay: 9.6s;  animation-duration: 15s; width: 2px; height: 2px; }
-  &[data-i="13"] { left: 30%; top: 8%;  animation-delay: 10.4s; animation-duration: 11s; width: 4px; height: 4px; }
-  &[data-i="14"] { left: 73%; top: 55%; animation-delay: 11.2s; animation-duration: 18s; width: 5px; height: 5px; }
-  &[data-i="15"] { left: 18%; top: 65%; animation-delay: 12.0s; animation-duration: 14s; width: 3px; height: 3px; }
+  &[data-i="1"]  { left: 12%; top: 28%; animation-delay: 0.8s;  animation-duration: 14s; width: 4px;  height: 4px;  }
+  &[data-i="2"]  { left: 67%; top: 15%; animation-delay: 1.6s;  animation-duration: 12s; width: 6px;  height: 6px;  background: var(--accent-secondary); }
+  &[data-i="3"]  { left: 34%; top: 72%; animation-delay: 2.4s;  animation-duration: 16s; width: 3px;  height: 3px;  }
+  &[data-i="4"]  { left: 85%; top: 45%; animation-delay: 3.2s;  animation-duration: 13s; width: 7px;  height: 7px;  }
+  &[data-i="5"]  { left: 5%;  top: 88%; animation-delay: 4.0s;  animation-duration: 15s; width: 4px;  height: 4px;  }
+  &[data-i="6"]  { left: 52%; top: 33%; animation-delay: 4.8s;  animation-duration: 11s; width: 5px;  height: 5px;  background: var(--accent-secondary); }
+  &[data-i="7"]  { left: 78%; top: 67%; animation-delay: 5.6s;  animation-duration: 17s; width: 3px;  height: 3px;  }
+  &[data-i="8"]  { left: 21%; top: 51%; animation-delay: 6.4s;  animation-duration: 14s; width: 4px;  height: 4px;  }
+  &[data-i="9"]  { left: 91%; top: 12%; animation-delay: 7.2s;  animation-duration: 12s; width: 6px;  height: 6px;  }
+  &[data-i="10"] { left: 43%; top: 90%; animation-delay: 8.0s;  animation-duration: 16s; width: 5px;  height: 5px;  background: var(--accent-secondary); }
+  &[data-i="11"] { left: 8%;  top: 42%; animation-delay: 8.8s;  animation-duration: 13s; width: 4px;  height: 4px;  }
+  &[data-i="12"] { left: 60%; top: 78%; animation-delay: 9.6s;  animation-duration: 15s; width: 3px;  height: 3px;  }
+  &[data-i="13"] { left: 30%; top: 8%;  animation-delay: 10.4s; animation-duration: 11s; width: 5px;  height: 5px;  }
+  &[data-i="14"] { left: 73%; top: 55%; animation-delay: 11.2s; animation-duration: 18s; width: 7px;  height: 7px;  background: var(--accent-secondary); }
+  &[data-i="15"] { left: 18%; top: 65%; animation-delay: 12.0s; animation-duration: 14s; width: 4px;  height: 4px;  }
 }
 
 @keyframes float-particle {
@@ -47,10 +103,10 @@
     transform: translateY(0) translateX(0);
   }
   10% {
-    opacity: 0.6;
+    opacity: 0.8;
   }
   50% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
   90% {
     opacity: 0;
@@ -182,5 +238,9 @@
 
   .hero-tagline {
     font-size: 1rem;
+  }
+
+  .hero-orbit {
+    display: none;
   }
 }

@@ -9,24 +9,27 @@ import { ScrollAnimateDirective } from '../../directives/scroll-animate.directiv
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
-  placeholderProjects = [
+  projects = [
     {
       title: 'Portfolio Website',
-      description: 'This very site — built with Angular 18, pure SCSS, and no external CSS frameworks. A dark-themed, animated single-page application.',
-      tags: ['Angular 18', 'SCSS', 'Responsive'],
+      description: 'This very site — built with Angular 18, pure SCSS, and no external CSS frameworks. AI-assisted development using Claude Code as a full development partner.',
+      tags: ['Angular 18', 'SCSS', 'Claude Code'],
       status: 'Live',
+      link: 'https://ahmkhan.github.io/my-portfolio/',
     },
     {
-      title: 'Coming Soon',
-      description: 'More projects will be added as I build them with Claude and other AI tools. Stay tuned!',
-      tags: ['In Progress'],
-      status: 'Planned',
+      title: 'Enterprise MEAN Stack Applications',
+      description: 'Multiple large-scale web applications developed at Matech Consulting & Zaavia — real-time dashboards, role-based access, RESTful APIs, and AWS cloud integrations.',
+      tags: ['Angular', 'Node.js', 'MongoDB', 'AWS'],
+      status: 'Private',
+      link: null,
     },
     {
-      title: 'Coming Soon',
-      description: 'Future projects showcasing MEAN stack expertise and Agentic AI integrations.',
-      tags: ['In Progress'],
-      status: 'Planned',
+      title: 'Agentic AI Projects',
+      description: 'Exploring AI-assisted development with Claude Code — building tools and applications that combine MEAN stack expertise with agentic AI capabilities. More coming soon.',
+      tags: ['Claude Code', 'Agentic AI', 'MEAN Stack'],
+      status: 'In Progress',
+      link: null,
     },
   ];
 }

@@ -55,7 +55,14 @@
   height: 100%;
   background: var(--gradient);
   border-radius: 4px;
+  width: 0;
   transition: width 1.2s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+// Trigger bar animation when category enters viewport
+.skill-category.animate-visible .skill-fill {
+  width: var(--skill-level, 0%);
 }
 
 @media (max-width: 768px) {
