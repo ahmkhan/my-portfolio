@@ -24,7 +24,7 @@
 - **Platform:** GitHub Pages (free)
 - **Live URL:** https://ahmkhan.github.io/my-portfolio/
 - **Repo:** https://github.com/ahmkhan/my-portfolio
-- **Deploy command:** `npx ng build --base-href /my-portfolio/ && npx angular-cli-ghpages --dir=dist/portfolio/browser`
+- **Deploy command:** `npx ng build && npx angular-cli-ghpages --dir=dist/portfolio/browser`
 - **Branch:** `main` (source) → `gh-pages` (deployed build)
 - **Dev package:** `angular-cli-ghpages` (devDependency)
 
