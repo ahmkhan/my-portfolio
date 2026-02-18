@@ -20,6 +20,14 @@
 - **Tools:** Git, GitHub, BitBucket
 - **Currently Learning:** Agentic AI & Robotics
 
+## Deployment
+- **Platform:** GitHub Pages (free)
+- **Live URL:** https://ahmkhan.github.io/my-portfolio/
+- **Repo:** https://github.com/ahmkhan/my-portfolio
+- **Deploy command:** `npx ng build --base-href /my-portfolio/ && npx angular-cli-ghpages --dir=dist/portfolio/browser`
+- **Branch:** `main` (source) → `gh-pages` (deployed build)
+- **Dev package:** `angular-cli-ghpages` (devDependency)
+
 ## Tech Stack
 - **Angular 18** — standalone components, signals, no NgModules
 - **SCSS** — custom design system, no external CSS frameworks (no Bootstrap/Tailwind)

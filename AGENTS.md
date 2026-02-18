@@ -27,6 +27,8 @@
 **Purpose:** Handle builds and deployment tasks.
 - Build command: `npx ng build` (output: `dist/portfolio/`)
 - Serve locally: `npx ng serve`
+- Deploy to GitHub Pages: `npx ng build --base-href /my-portfolio/ && npx angular-cli-ghpages --dir=dist/portfolio/browser`
+- Live URL: https://ahmkhan.github.io/my-portfolio/
 - Component style budget: 6kB warning / 10kB error (configured in `angular.json`)
 - No SSR — static site only
 
