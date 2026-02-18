@@ -1,0 +1,32 @@
+<section class="hero" id="hero">
+  <div class="particles">
+    @for (p of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; track p) {
+      <div class="particle" [attr.data-i]="p"></div>
+    }
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-greeting mono">{{ hero.greeting }}</p>
+    <h1 class="hero-name">{{ hero.name }}</h1>
+    <h2 class="hero-title">
+      <span class="typed-text">{{ typedText }}</span>
+      <span class="cursor">|</span>
+    </h2>
+    <p class="hero-tagline">{{ hero.tagline }}</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" (click)="navigateTo(hero.cta.primary.sectionId)">
+        {{ hero.cta.primary.label }}
+      </button>
+      <button class="btn btn-outline" (click)="navigateTo(hero.cta.secondary.sectionId)">
+        {{ hero.cta.secondary.label }}
+      </button>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll Down</span>
+  </div>
+</section>

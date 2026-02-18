@@ -1,0 +1,25 @@
+<section class="section" id="agentic-ai">
+  <div class="container">
+    <div class="section-header animate-on-scroll" appScrollAnimate>
+      <h2 class="section-title">Agentic AI & Robotics</h2>
+      <p class="section-subtitle">My current learning journey into the future of technology</p>
+    </div>
+
+    <div class="ai-grid">
+      @for (topic of topics; track topic.title; let i = $index) {
+        <div class="ai-card card animate-on-scroll" [class]="'stagger-' + (i + 1)" appScrollAnimate>
+          <span class="ai-icon">{{ topic.icon }}</span>
+          <h3 class="ai-title">{{ topic.title }}</h3>
+          <p class="ai-desc">{{ topic.description }}</p>
+        </div>
+      }
+
+      <div class="ai-card card coming-soon animate-on-scroll stagger-6" appScrollAnimate>
+        <span class="ai-icon">🚀</span>
+        <h3 class="ai-title">More Coming Soon</h3>
+        <p class="ai-desc">This section will grow as I continue exploring Agentic AI, building projects, and learning new concepts.</p>
+        <div class="pulse-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>

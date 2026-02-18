@@ -1,0 +1,25 @@
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header animate-on-scroll" appScrollAnimate>
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A journey of continuous growth across 20+ years in IT</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text animate-on-scroll" appScrollAnimate>
+        <p>{{ about.summary }}</p>
+        <p>{{ about.narrative }}</p>
+        <p class="highlight-text">{{ about.currentFocus }}</p>
+      </div>
+
+      <div class="about-stats animate-on-scroll" appScrollAnimate>
+        @for (stat of about.stats; track stat.label; let i = $index) {
+          <div class="stat-card card" [class]="'stagger-' + (i + 1)">
+            <span class="stat-value gradient-text">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

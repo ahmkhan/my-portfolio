@@ -1,0 +1,25 @@
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header animate-on-scroll" appScrollAnimate>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Showcasing my work — more coming soon</p>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of placeholderProjects; track project.title + $index; let i = $index) {
+        <div class="project-card card animate-on-scroll" [class]="'stagger-' + (i + 1)" [class.planned]="project.status === 'Planned'" appScrollAnimate>
+          <div class="project-status" [class.live]="project.status === 'Live'">
+            {{ project.status }}
+          </div>
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+          <div class="project-tags">
+            @for (tag of project.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
