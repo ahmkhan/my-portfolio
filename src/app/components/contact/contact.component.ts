@@ -16,6 +16,14 @@ export class ContactComponent {
 
   formData = { name: '', email: '', message: '' };
   formSubmitted = false;
+  emailCopied = false;
+
+  copyEmail(): void {
+    navigator.clipboard.writeText(this.contact.email).then(() => {
+      this.emailCopied = true;
+      setTimeout(() => this.emailCopied = false, 2000);
+    });
+  }
 
   onSubmit(): void {
     if (this.formData.name && this.formData.email && this.formData.message) {

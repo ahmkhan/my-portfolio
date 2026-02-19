@@ -31,9 +31,15 @@
 
         <div class="social-links">
           @for (link of socials; track link.label) {
-            <a [href]="link.url" [target]="link.url.startsWith('mailto:') ? '_self' : '_blank'" rel="noopener" class="social-btn">
-              {{ link.label }}
-            </a>
+            @if (link.icon === 'email') {
+              <button class="social-btn" (click)="copyEmail()">
+                {{ emailCopied ? 'Copied!' : link.label }}
+              </button>
+            } @else {
+              <a [href]="link.url" target="_blank" rel="noopener" class="social-btn">
+                {{ link.label }}
+              </a>
+            }
           }
         </div>
       </div>
