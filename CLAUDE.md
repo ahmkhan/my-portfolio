@@ -11,6 +11,9 @@
 - **Total IT Experience:** 20+ years (since 1999)
 - **MEAN Stack Experience:** 7+ years
 
+## Pending Role Update — DO NOT CHANGE YET
+Current role is **Senior MEAN Stack Developer**. Once Ahmer completes his Agentic AI & Robotics learning, the role will be updated across: this file, `portfolio-data.ts`, `index.html`, `og-preview.html`, and `resume-preview.html`. Wait for explicit confirmation before making any role changes.
+
 ## Owner's Technical Skills
 - **Frontend:** Angular (7yr), JavaScript/ES6+ (8yr), HTML5, CSS3, jQuery
 - **Backend:** Node.js (7yr), Express.js
