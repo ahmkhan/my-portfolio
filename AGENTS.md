@@ -50,8 +50,9 @@
 4. Always refer to CLAUDE.md for project context
 5. Ask before assuming on design or technical decisions
 6. **MANDATORY — Doc Sync & Push:** After every session where changes are made, AND on any deploy, push, or session close:
-   - Run `/sync-docs` to update `CLAUDE.md` and `AGENTS.md`
-   - Then run: `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`
-   - Both the UPDATE and the PUSH are required. Do not skip either step.
+   - Step 1: Update `MEMORY.md` at `C:\Users\Ahmer\.claude\projects\D--laptopData-ai-claude-my-portfolio\memory\MEMORY.md` (local only, no git)
+   - Step 2: Update `CLAUDE.md` and `AGENTS.md`
+   - Step 3: Run: `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`
+   - All three steps are required. Do not skip any.
    - Trigger words: "deploy", "done", "push", "looks good", "commit", "close"
    - The skill file is at `.claude/skills/sync-docs.md`

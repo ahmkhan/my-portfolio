@@ -91,7 +91,7 @@ src/
 - Contact form uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
 - **IMPORTANT:** `background-image: url()` in Angular component SCSS cannot resolve `public/` assets — always use `<img src="...">` in templates instead
 - Profile photo in About uses `<img src="profile-photo.png">` with `top: -60px` offset to center face in circular frame
-- **MANDATORY — Doc Sync & Push:** After every session where changes are made (or on deploy/push/session close), run `/sync-docs` to update `CLAUDE.md` and `AGENTS.md`, then immediately `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`. Both steps are required — update AND push. Do NOT wait for the user to ask.
+- **MANDATORY — Doc Sync & Push:** After every session where changes are made (or on deploy/push/session close): (1) update `MEMORY.md`, (2) update `CLAUDE.md` and `AGENTS.md`, (3) run `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`. All three steps required. MEMORY.md is local-only (no git). Do NOT wait for the user to ask.
 
 ## Agentic AI Learning Progress
 Topics covered so far:
