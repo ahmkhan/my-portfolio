@@ -54,16 +54,29 @@
     border: 1px solid var(--border-accent);
   }
 
+  .project-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: auto;
+  }
+
   .project-link {
     display: inline-block;
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--accent);
-    margin-top: auto;
     transition: color var(--transition-fast);
 
     &:hover {
       color: var(--accent-secondary);
+    }
+
+    &--github {
+      color: var(--text-secondary);
+
+      &:hover {
+        color: var(--text-primary);
+      }
     }
   }
 }

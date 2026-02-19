@@ -21,9 +21,14 @@
               <span class="tag">{{ tag }}</span>
             }
           </div>
-          @if (project.link) {
-            <a [href]="project.link" target="_blank" rel="noopener" class="project-link">View Live ↗</a>
-          }
+          <div class="project-actions">
+            @if (project.link) {
+              <a [href]="project.link" target="_blank" rel="noopener" class="project-link">View Live ↗</a>
+            }
+            @if (project.githubLink) {
+              <a [href]="project.githubLink" target="_blank" rel="noopener" class="project-link project-link--github">GitHub ↗</a>
+            }
+          </div>
         </div>
       }
     </div>

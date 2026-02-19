@@ -79,6 +79,20 @@
   }
 }
 
+.nav-github {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 6px;
+  transition: color var(--transition-fast), background var(--transition-fast);
+
+  &:hover {
+    color: var(--accent);
+    background: rgba(0, 212, 170, 0.1);
+  }
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
