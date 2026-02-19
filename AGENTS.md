@@ -7,6 +7,7 @@
 - Import `ScrollAnimateDirective` for scroll-triggered animations — it adds `animate-visible` class via IntersectionObserver
 - Use data from `src/app/data/portfolio-data.ts` — never hardcode content in templates
 - Exception: `projects.component.ts` has its own `projects` array
+- About section has NO profile photo — photo is in Hero only. Do NOT add photo back to About.
 - `AppComponent` has `HostListener('window:scroll')`, `ngOnInit()` (loader removal), and `scrollToTop()` — be aware when modifying it
 - Navbar has a `.nav-github` anchor (external link → GitHub profile) placed between `.nav-links` and `.hamburger` — do not remove it when modifying the navbar
 - Hero uses a two-column grid layout: `.hero-text` (left) + `.hero-photo` (right, 400px wide). Photo is hidden on mobile (≤768px). Do not revert to single-column centered layout.

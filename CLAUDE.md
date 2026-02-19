@@ -64,7 +64,7 @@ src/
 │   └── components/
 │       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo, GitHub icon link
 │       ├── hero/                        # Full-screen — two-column: text+CTA left, circular profile photo right; particles, typing, Download CV
-│       ├── about/                       # Profile photo (circular CSS frame) + summary text + stats cards
+│       ├── about/                       # Full-width: summary text + 4-column stats cards (no photo — photo is in Hero only)
 │       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
 │       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
 │       ├── agentic-ai/                  # Learning journey topic cards — section order position 3 (after About)
@@ -93,7 +93,7 @@ src/
 - Static assets (images, icons, favicons) go in `public/` — Angular copies these to dist root
 - Contact form uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
 - **IMPORTANT:** `background-image: url()` in Angular component SCSS cannot resolve `public/` assets — always use `<img src="...">` in templates instead
-- Profile photo in About uses `<img src="profile-photo.png">` with `top: -60px` offset to center face in circular frame (300px circle)
+- Profile photo appears ONLY in the Hero section — it was intentionally removed from About to avoid repetition
 - Profile photo also in Hero section: same technique, larger circle (340px), `top: -68px` — hidden on mobile (≤768px)
 - Hero layout: two-column grid (`1fr 400px`) — text left, photo right; collapses to single column on mobile
 - Section order: Hero → About → Agentic AI → Experience → Skills → Projects → Contact (Agentic AI moved up as current-focus USP)
