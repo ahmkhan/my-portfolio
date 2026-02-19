@@ -8,24 +8,37 @@
   <div class="hero-orbit"></div>
 
   <div class="hero-content">
-    <p class="hero-greeting mono">{{ hero.greeting }}</p>
-    <h1 class="hero-name">{{ hero.name }}</h1>
-    <h2 class="hero-title">
-      <span class="typed-text">{{ typedText }}</span>
-      <span class="cursor">|</span>
-    </h2>
-    <p class="hero-tagline">{{ hero.tagline }}</p>
-    <div class="hero-cta">
-      <button class="btn btn-primary" (click)="navigateTo(hero.cta.primary.sectionId)">
-        {{ hero.cta.primary.label }}
-      </button>
-      <button class="btn btn-outline" (click)="navigateTo(hero.cta.secondary.sectionId)">
-        {{ hero.cta.secondary.label }}
-      </button>
-      <a class="btn btn-download" href="Ahmer-Khan-CV.pdf" download="Ahmer-Khan-CV.pdf">
-        ↓ Download CV
-      </a>
+
+    <div class="hero-text">
+      <p class="hero-greeting mono">{{ hero.greeting }}</p>
+      <h1 class="hero-name">{{ hero.name }}</h1>
+      <h2 class="hero-title">
+        <span class="typed-text">{{ typedText }}</span>
+        <span class="cursor">|</span>
+      </h2>
+      <p class="hero-tagline">{{ hero.tagline }}</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" (click)="navigateTo(hero.cta.primary.sectionId)">
+          {{ hero.cta.primary.label }}
+        </button>
+        <button class="btn btn-outline" (click)="navigateTo(hero.cta.secondary.sectionId)">
+          {{ hero.cta.secondary.label }}
+        </button>
+        <a class="btn btn-download" href="Ahmer-Khan-CV.pdf" download="Ahmer-Khan-CV.pdf">
+          ↓ Download CV
+        </a>
+      </div>
     </div>
+
+    <div class="hero-photo">
+      <div class="hero-photo-ring"></div>
+      <div class="hero-photo-circle">
+        <img src="profile-photo.png" alt="Mohammed Ahmer Khan">
+      </div>
+      <div class="hero-photo-dot-1"></div>
+      <div class="hero-photo-dot-2"></div>
+    </div>
+
   </div>
 
   <div class="scroll-indicator">

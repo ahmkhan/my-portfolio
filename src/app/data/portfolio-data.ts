@@ -40,9 +40,9 @@ export interface SocialLink {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', sectionId: 'hero' },
   { label: 'About', sectionId: 'about' },
+  { label: 'AI & Robotics', sectionId: 'agentic-ai' },
   { label: 'Experience', sectionId: 'experience' },
   { label: 'Skills', sectionId: 'skills' },
-  { label: 'AI & Robotics', sectionId: 'agentic-ai' },
   { label: 'Projects', sectionId: 'projects' },
   { label: 'Contact', sectionId: 'contact' },
 ];
