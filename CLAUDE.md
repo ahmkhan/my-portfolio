@@ -39,7 +39,11 @@
 ```
 public/
 ├── favicon.ico                          # Legacy favicon (fallback)
-└── favicon.svg                          # Primary SVG favicon (dark bg + cyan AK)
+├── favicon.svg                          # Primary SVG favicon (dark bg + cyan AK)
+├── Ahmer-Khan-CV.pdf                    # Downloadable CV — generated from resume-preview.html
+└── og-image.png                         # Social preview image (1200x630) — generated from og-preview.html
+resume-preview.html                      # HTML resume template (open in browser → print to PDF to regenerate)
+og-preview.html                          # Social card template → headless Chrome screenshot → public/og-image.png
 src/
 ├── styles.scss                          # Global design system (variables, reset, animations)
 ├── index.html                           # Entry point — meta/OG tags, loader, Google Fonts
@@ -52,7 +56,7 @@ src/
 │   │   └── scroll.service.ts            # Smooth scroll + active section tracking (signals)
 │   └── components/
 │       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo
-│       ├── hero/                        # Full-screen — dot grid bg, glow blob, orbit ring, particles, typing
+│       ├── hero/                        # Full-screen — dot grid bg, glow blob, orbit ring, particles, typing, Download CV button
 │       ├── about/                       # Professional summary + stats cards
 │       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
 │       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
@@ -91,5 +95,7 @@ Topics covered so far:
 - Skills, Sub Agents, Plugins, Hooks, MCP
 - Building a portfolio website with Claude Code
 - Iterative improvement — fixing real UX issues (forms, animations, favicons, SEO)
+- Portfolio UI/UX audit — scoring, credibility review for LinkedIn/Upwork/Fiverr
+- Creating a professional HTML/PDF resume with headless Chrome PDF generation
 
 > This section will be updated as learning progresses.

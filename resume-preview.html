@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Ahmer Khan — Resume</title>
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:       #00b4a0;
+      --accent-dark:  #008f7e;
+      --dark:         #1a1a2e;
+      --text:         #2d2d3a;
+      --text-light:   #5a5a72;
+      --border:       #e2e4ef;
+      --bg-sidebar:   #f5f7ff;
+      --bg-white:     #ffffff;
+      --tag-bg:       #e8f8f5;
+      --tag-text:     #007a6a;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+      background: #eef0f7;
+    }
+
+    /* =============================================
+       PAGE WRAPPER (A4 proportions)
+    ============================================= */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: var(--bg-white);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.15);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+    }
+
+    /* =============================================
+       SIDEBAR
+    ============================================= */
+    .sidebar {
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border);
+      padding: 32px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Avatar / Monogram */
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      margin: 0 auto 4px;
+      box-shadow: 0 4px 16px rgba(0,180,160,0.35);
+    }
+
+    .sidebar-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* Contact */
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11.5px;
+      color: var(--text);
+    }
+    .contact-list li .icon {
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .contact-list li .icon svg { width: 11px; height: 11px; fill: #fff; }
+    .contact-list a { color: var(--text); text-decoration: none; word-break: break-all; }
+    .contact-list a:hover { color: var(--accent); }
+
+    /* Skills */
+    .skill-group { margin-bottom: 14px; }
+    .skill-group-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .skill-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 10.5px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,180,160,0.25);
+    }
+
+    /* Education */
+    .edu-item { margin-bottom: 10px; }
+    .edu-degree { font-size: 12px; font-weight: 600; color: var(--text); }
+    .edu-school { font-size: 11px; color: var(--text-light); }
+    .edu-year { font-size: 10.5px; color: var(--accent-dark); margin-top: 1px; }
+
+    /* Languages */
+    .lang-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .lang-list li { display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; }
+    .lang-level {
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+
+    /* =============================================
+       MAIN CONTENT
+    ============================================= */
+    .main {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Header */
+    .header-name {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+    .header-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+    .header-summary {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 10px;
+      line-height: 1.7;
+      padding-left: 12px;
+      border-left: 3px solid var(--accent);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 8px 6px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-value {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: 9.5px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section headings */
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-dark);
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 14px;
+    }
+
+    /* Experience */
+    .exp-list { display: flex; flex-direction: column; gap: 16px; }
+    .exp-item { position: relative; padding-left: 14px; }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .exp-role {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .exp-period {
+      font-size: 10.5px;
+      color: var(--bg-white);
+      background: var(--accent);
+      padding: 2px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .exp-company {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--accent-dark);
+      margin-top: 2px;
+    }
+    .exp-desc {
+      font-size: 11.5px;
+      color: var(--text-light);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .exp-highlights {
+      list-style: none;
+      margin-top: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .exp-highlights li {
+      font-size: 11px;
+      color: var(--text);
+      padding-left: 12px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .exp-highlights li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 10px;
+    }
+
+    /* AWS / Technical expertise 2-column */
+    .aws-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+    }
+    .aws-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+    }
+    .aws-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      body { background: white; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar">
+
+      <div>
+        <div class="avatar">AK</div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="sidebar-section-title">Contact</div>
+        <ul class="contact-list">
+          <li>
+            <span class="icon">
+              <svg viewBox="0 0 20 20"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 0v.01L10 11 16 4H4zm0 2.236V16h12V6.236l-5.293 4.53a1 1 0 01-1.414 0L4 6.236z"/></svg>
+            </span>
+            <a href="mailto:ahmkhan2000@yahoo.com">ahmkhan2000@yahoo.com</a>
+          </li>
+          <li>
+            <span class="icon">
+              <svg viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            </span>
+            <span>+92 333 350 2989</span>
+          </li>
+          <li>
+            <span class="icon">
+              <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            </span>
+            <span>Karachi, Pakistan</span>
+          </li>
+          <li>
+            <span class="icon">
+              <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/></svg>
+            </span>
+            <a href="https://linkedin.com/in/ahmerkhan-724953124/" target="_blank">linkedin.com/in/ahmerkhan</a>
+          </li>
+          <li>
+            <span class="icon">
+              <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg>
+            </span>
+            <a href="https://github.com/ahmkhan" target="_blank">github.com/ahmkhan</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Technical Skills -->
+      <div>
+        <div class="sidebar-section-title">Technical Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">JavaScript/ES6+</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3 / SCSS</span>
+            <span class="skill-tag">jQuery</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">JWT Auth</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Databases</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">DynamoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">DevOps / Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">BitBucket</span>
+            <span class="skill-tag">Serverless</span>
+            <span class="skill-tag">Server Mgmt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS Services -->
+      <div>
+        <div class="sidebar-section-title">AWS Services</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Elastic Beanstalk</span>
+          <span class="skill-tag">S3</span>
+          <span class="skill-tag">API Gateway</span>
+          <span class="skill-tag">Lambda</span>
+          <span class="skill-tag">DynamoDB</span>
+          <span class="skill-tag">Step Functions</span>
+          <span class="skill-tag">CloudWatch</span>
+          <span class="skill-tag">SES</span>
+          <span class="skill-tag">SQS</span>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div>
+        <div class="sidebar-section-title">Languages</div>
+        <ul class="lang-list">
+          <li><span>English</span><span class="lang-level">Fluent</span></li>
+          <li><span>Urdu</span><span class="lang-level">Native</span></li>
+        </ul>
+      </div>
+
+      <!-- Interests -->
+      <div>
+        <div class="sidebar-section-title">Currently Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Agentic AI</span>
+          <span class="skill-tag">Robotics</span>
+          <span class="skill-tag">Claude Code</span>
+          <span class="skill-tag">MCP</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="main">
+
+      <!-- Header -->
+      <div>
+        <h1 class="header-name">Mohammed Ahmer Khan</h1>
+        <div class="header-title">Senior MEAN Stack Developer &nbsp;|&nbsp; Full-Stack Web Engineer</div>
+        <p class="header-summary">
+          Results-driven Senior MEAN Stack Developer with 20+ years of IT experience. Specialist in
+          building scalable web applications using Angular, Node.js, Express.js, and MongoDB.
+          Proven track record across banking, logistics, and enterprise sectors. Strong expertise in
+          AWS cloud services, RESTful API architecture, and frontend performance optimization.
+        </p>
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-value">20+</div>
+            <div class="stat-label">Years in IT</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">7+</div>
+            <div class="stat-label">Years MEAN Stack</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Companies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">AWS</div>
+            <div class="stat-label">Certified Skills</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div>
+        <div class="section-title">Professional Experience</div>
+        <div class="exp-list">
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role">Senior MEAN Stack Developer / Senior Angular Developer</div>
+              <span class="exp-period">May 2019 — Present</span>
+            </div>
+            <div class="exp-company">Matech Consulting &amp; Outsourcing — Karachi, Pakistan</div>
+            <p class="exp-desc">Leading frontend and full-stack development of enterprise web applications using Angular and Node.js.</p>
+            <ul class="exp-highlights">
+              <li>Architecting scalable Angular applications with modern best practices and standalone components</li>
+              <li>Full-stack development with Node.js, Express.js, and MongoDB</li>
+              <li>AWS deployment, debugging, monitoring with CloudWatch, and server management</li>
+              <li>Mentoring junior developers and conducting thorough code reviews</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role">Senior Web Developer — MEAN Stack</div>
+              <span class="exp-period">Feb 2015 — May 2019</span>
+            </div>
+            <div class="exp-company">Zaavia — Karachi, Pakistan</div>
+            <p class="exp-desc">Transitioned into full-stack MEAN development, building dynamic web applications from the ground up.</p>
+            <ul class="exp-highlights">
+              <li>Built and maintained MEAN stack applications from scratch</li>
+              <li>Implemented RESTful APIs with Node.js and Express.js</li>
+              <li>Worked with MongoDB for flexible, schema-less data modeling</li>
+              <li>Adopted modern JavaScript (ES6+) practices across the codebase</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role">IT Specialist</div>
+              <span class="exp-period">Jul 2010 — Jan 2015</span>
+            </div>
+            <div class="exp-company">National Bank of Pakistan — Karachi, Pakistan</div>
+            <p class="exp-desc">Managed IT infrastructure and systems for one of Pakistan's largest financial institutions.</p>
+            <ul class="exp-highlights">
+              <li>Maintained and secured banking IT infrastructure across multiple branches</li>
+              <li>Managed network systems, server environments, and compliance protocols</li>
+              <li>Provided technical support and ensured high system availability</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role">Network Administrator</div>
+              <span class="exp-period">Feb 2007 — Jun 2010</span>
+            </div>
+            <div class="exp-company">Union Exports Textile Mills — Karachi, Pakistan</div>
+            <ul class="exp-highlights">
+              <li>Designed and managed corporate network architecture</li>
+              <li>Implemented network security protocols and backup systems</li>
+              <li>Maintained server infrastructure for a manufacturing environment</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role">Assistant Network Administrator</div>
+              <span class="exp-period">Mar 1999 — Feb 2007</span>
+            </div>
+            <div class="exp-company">Dancom Pakistan — Karachi, Pakistan</div>
+            <ul class="exp-highlights">
+              <li>Started IT career managing network systems and infrastructure</li>
+              <li>Network setup, configuration, and troubleshooting across the organization</li>
+              <li>Hardware, software support, and early exposure to web technologies</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Key Strengths -->
+      <div>
+        <div class="section-title">Key Strengths</div>
+        <div class="aws-grid">
+          <div class="aws-item"><span class="aws-dot"></span>Scalable Angular Architecture</div>
+          <div class="aws-item"><span class="aws-dot"></span>RESTful API Design</div>
+          <div class="aws-item"><span class="aws-dot"></span>AWS Cloud Deployment</div>
+          <div class="aws-item"><span class="aws-dot"></span>MongoDB Data Modeling</div>
+          <div class="aws-item"><span class="aws-dot"></span>Performance Optimization</div>
+          <div class="aws-item"><span class="aws-dot"></span>Team Mentoring &amp; Code Review</div>
+          <div class="aws-item"><span class="aws-dot"></span>Serverless Architecture</div>
+          <div class="aws-item"><span class="aws-dot"></span>Cross-functional Collaboration</div>
+        </div>
+      </div>
+
+      <!-- Footer line -->
+      <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 10px; color: var(--text-light);">Portfolio: https://ahmkhan.github.io/my-portfolio/</span>
+        <span style="font-size: 10px; color: var(--text-light);">Last Updated: February 2026</span>
+      </div>
+
+    </main>
+
+  </div>
+</body>
+</html>

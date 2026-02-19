@@ -41,8 +41,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Personal documents
+# Personal documents (keep source PDFs out of git)
 *.pdf
+# Exception: generated CV in public/ is a project asset
+!public/Ahmer-Khan-CV.pdf
 
 # Claude Code — tracked intentionally (skills, settings)
 # .claude/

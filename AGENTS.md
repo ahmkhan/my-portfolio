@@ -35,7 +35,10 @@
 - Live URL: https://ahmkhan.github.io/my-portfolio/
 - Component style budget: 6kB warning / 10kB error (configured in `angular.json`)
 - No SSR — static site only
-- **Static assets** (images, SVGs, favicons) go in `public/` — Angular copies them to the dist root. Do NOT put them in `src/` expecting them to be served
+- **Static assets** (images, SVGs, favicons, PDFs) go in `public/` — Angular copies them to the dist root. Do NOT put them in `src/` expecting them to be served
+- `Ahmer-Khan-CV.pdf` lives in `public/` — regenerate from `resume-preview.html` using headless Chrome: `chrome --headless --print-to-pdf=public/Ahmer-Khan-CV.pdf --print-to-pdf-no-header file:///path/to/resume-preview.html`
+- `og-image.png` lives in `public/` — regenerate from `og-preview.html` using headless Chrome: `chrome --headless --screenshot=public/og-image.png --window-size=1200,630 file:///path/to/og-preview.html`
+- SEO: `index.html` has full og: and twitter: meta tags including og:image pointing to the deployed PNG URL
 
 ## Shared Rules
 1. Do not introduce technologies outside Ahmer's expertise without discussion
