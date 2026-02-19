@@ -6,20 +6,35 @@
     </div>
 
     <div class="about-grid">
-      <div class="about-text animate-on-scroll" appScrollAnimate>
-        <p>{{ about.summary }}</p>
-        <p>{{ about.narrative }}</p>
-        <p class="highlight-text">{{ about.currentFocus }}</p>
+
+      <!-- Profile Photo -->
+      <div class="about-photo animate-on-scroll" appScrollAnimate>
+        <div class="photo-ring"></div>
+        <div class="photo-circle">
+          <img src="profile-photo.png" alt="Mohammed Ahmer Khan">
+        </div>
+        <div class="photo-dot-1"></div>
+        <div class="photo-dot-2"></div>
       </div>
 
-      <div class="about-stats animate-on-scroll" appScrollAnimate>
-        @for (stat of about.stats; track stat.label; let i = $index) {
-          <div class="stat-card card" [class]="'stagger-' + (i + 1)">
-            <span class="stat-value gradient-text">{{ stat.value }}</span>
-            <span class="stat-label">{{ stat.label }}</span>
-          </div>
-        }
+      <!-- Text + Stats -->
+      <div class="about-content">
+        <div class="about-text animate-on-scroll" appScrollAnimate>
+          <p>{{ about.summary }}</p>
+          <p>{{ about.narrative }}</p>
+          <p class="highlight-text">{{ about.currentFocus }}</p>
+        </div>
+
+        <div class="about-stats animate-on-scroll" appScrollAnimate>
+          @for (stat of about.stats; track stat.label; let i = $index) {
+            <div class="stat-card card" [class]="'stagger-' + (i + 1)">
+              <span class="stat-value gradient-text">{{ stat.value }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          }
+        </div>
       </div>
+
     </div>
   </div>
 </section>

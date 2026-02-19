@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+      background: #0d0d1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Dot grid */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,212,170,0.10) 1px, transparent 1px);
+      background-size: 36px 36px;
+      z-index: 0;
+    }
+
+    /* Ambient glow behind person */
+    .glow-bg {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(0, 180, 216, 0.12) 0%,
+        rgba(0, 212, 170, 0.08) 40%,
+        transparent 70%
+      );
+      z-index: 0;
+    }
+
+    /* Outer decorative ring */
+    .ring-outer {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 170, 0.15);
+      z-index: 0;
+    }
+
+    /* Photo circle container */
+    .photo-circle {
+      position: relative;
+      z-index: 2;
+      width: 370px;
+      height: 370px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid transparent;
+      background:
+        linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+        linear-gradient(135deg, #00d4aa, #00b4d8, #00d4aa) border-box;
+      box-shadow:
+        0 0 30px rgba(0, 212, 170, 0.25),
+        0 0 60px rgba(0, 212, 170, 0.10),
+        inset 0 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-circle img {
+      position: absolute;
+      width: 170%;
+      left: 50%;
+      top: -60%;
+      transform: translateX(-50%);
+      display: block;
+    }
+
+    /* Subtle bottom gradient fade inside circle */
+    .photo-circle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(13,13,26,0.5), transparent);
+      border-radius: 0 0 50% 50%;
+    }
+
+    /* Small orbit dot */
+    .orbit-dot {
+      position: absolute;
+      z-index: 3;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00d4aa;
+      box-shadow: 0 0 10px #00d4aa, 0 0 20px rgba(0,212,170,0.5);
+      top: 42px;
+      right: 110px;
+    }
+
+    .orbit-dot-2 {
+      position: absolute;
+      z-index: 3;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #00b4d8;
+      box-shadow: 0 0 8px #00b4d8;
+      bottom: 68px;
+      left: 95px;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-bg"></div>
+  <div class="ring-outer"></div>
+  <div class="orbit-dot"></div>
+  <div class="orbit-dot-2"></div>
+  <div class="photo-circle">
+    <img src="file:///D:/laptopData/ai%20claude/my-portfolio/my-profile-image.png" alt="Mohammed Ahmer Khan">
+  </div>
+</body>
+</html>
