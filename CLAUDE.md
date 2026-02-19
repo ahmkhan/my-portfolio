@@ -6,7 +6,7 @@
 - **Location:** Karachi, Pakistan
 - **Email:** ahmkhan2000@yahoo.com
 - **Phone:** +92 333 350 2989
-- **LinkedIn:** https://www.linkedin.com/in/ahmerkhan-724953124/
+- **LinkedIn:** https://www.linkedin.com/in/ahmer-khan-724953124/
 - **GitHub:** https://github.com/ahmkhan
 - **Total IT Experience:** 20+ years (since 1999)
 - **MEAN Stack Experience:** 7+ years

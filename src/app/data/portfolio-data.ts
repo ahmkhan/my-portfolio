@@ -214,7 +214,7 @@ export const AGENTIC_AI_TOPICS: AgenticTopic[] = [
 
 // Social Links
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahmerkhan-724953124/', icon: 'linkedin' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahmer-khan-724953124/', icon: 'linkedin' },
   { label: 'GitHub', url: 'https://github.com/ahmkhan', icon: 'github' },
   { label: 'Email', url: 'mailto:ahmkhan2000@yahoo.com', icon: 'email' },
 ];
