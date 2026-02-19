@@ -41,7 +41,9 @@ public/
 ├── favicon.ico                          # Legacy favicon (fallback)
 ├── favicon.svg                          # Primary SVG favicon (dark bg + cyan AK)
 ├── Ahmer-Khan-CV.pdf                    # Downloadable CV — generated from resume-preview.html
-└── og-image.png                         # Social preview image (1200x630) — generated from og-preview.html
+├── og-image.png                         # Social preview image (1200x630) — generated from og-preview.html
+├── profile-photo.png                    # Raw profile photo (RGBA transparent PNG, 408x612) — used in About section
+└── profile.png                          # Pre-rendered circular profile card (500x500) — generated from profile-card.html
 resume-preview.html                      # HTML resume template (open in browser → print to PDF to regenerate)
 og-preview.html                          # Social card template → headless Chrome screenshot → public/og-image.png
 src/
@@ -57,7 +59,7 @@ src/
 │   └── components/
 │       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo
 │       ├── hero/                        # Full-screen — dot grid bg, glow blob, orbit ring, particles, typing, Download CV button
-│       ├── about/                       # Professional summary + stats cards
+│       ├── about/                       # Profile photo (circular CSS frame) + summary text + stats cards
 │       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
 │       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
 │       ├── agentic-ai/                  # Learning journey topic cards
@@ -97,5 +99,6 @@ Topics covered so far:
 - Iterative improvement — fixing real UX issues (forms, animations, favicons, SEO)
 - Portfolio UI/UX audit — scoring, credibility review for LinkedIn/Upwork/Fiverr
 - Creating a professional HTML/PDF resume with headless Chrome PDF generation
+- Adding profile photo with CSS circular frame, glow border, and scroll animation
 
 > This section will be updated as learning progresses.
