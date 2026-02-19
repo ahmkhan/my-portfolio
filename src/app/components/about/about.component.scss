@@ -1,80 +1,9 @@
 .about-grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 70px;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 40px;
 }
 
-// ── Profile Photo ──────────────────────────────
-.about-photo {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 340px;
-  height: 340px;
-  flex-shrink: 0;
-}
-
-// Pulsing outer ring
-.photo-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 212, 170, 0.2);
-  animation: ring-pulse 3s ease-in-out infinite;
-}
-
-@keyframes ring-pulse {
-  0%, 100% { transform: scale(1);    opacity: 0.4; }
-  50%       { transform: scale(1.05); opacity: 1;   }
-}
-
-// Glowing circle frame
-.photo-circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-  border: 3px solid transparent;
-  background:
-    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
-    linear-gradient(135deg, #00d4aa, #00b4d8, #00d4aa) border-box;
-  box-shadow: 0 0 28px rgba(0, 212, 170, 0.22), 0 0 56px rgba(0, 212, 170, 0.08);
-
-  img {
-    display: block;
-    width: 100%;     // 300px — natural quality, slight downscale from 408px source
-    height: auto;
-    position: relative;
-    top: -60px;      // shift up to center on face
-  }
-}
-
-// Orbit accent dots
-.photo-dot-1 {
-  position: absolute;
-  top: 28px; right: 48px;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(0,212,170,0.4);
-  z-index: 3;
-}
-
-.photo-dot-2 {
-  position: absolute;
-  bottom: 44px; left: 42px;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent-secondary);
-  box-shadow: 0 0 8px var(--accent-secondary);
-  z-index: 3;
-}
-
-// ── Content (text + stats) ─────────────────────
 .about-content {
   display: flex;
   flex-direction: column;
@@ -98,7 +27,7 @@
 
 .about-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -119,30 +48,8 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    justify-items: center;
-  }
-
-  .about-content {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    justify-items: center;
-  }
-
-  .about-content { width: 100%; }
-}
-
 @media (max-width: 768px) {
-  .about-photo { width: 280px; height: 280px; }
-  .photo-circle { width: 240px; height: 240px; }
-  .about-stats { grid-template-columns: 1fr 1fr; }
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
 }
