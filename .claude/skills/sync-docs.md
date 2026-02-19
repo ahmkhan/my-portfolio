@@ -53,11 +53,18 @@ Open and read the current AGENTS.md, then update these sections as needed:
 - No repeating information that's already there
 - Remove or correct anything that is now outdated or wrong
 
-### 5. Confirm
-After writing both files, briefly tell the user: "CLAUDE.md and AGENTS.md updated — [1-2 sentence summary of what was added]."
+### 5. Commit and push the docs to GitHub
+After updating both files, always run:
+```
+git add CLAUDE.md AGENTS.md && git commit -m "Update project docs" && git push origin main
+```
+This is mandatory — the files must be committed and pushed, not just saved locally.
+
+### 6. Confirm
+After writing and pushing both files, briefly tell the user: "CLAUDE.md and AGENTS.md updated and pushed to GitHub — [1-2 sentence summary of what was added]."
 
 ---
 
 ## Trigger reminder
 
-This skill should be run at the END of every working session. If you notice the session is ending (user says "deploy", "done", "push it", "looks good") and you haven't updated the docs yet — do it now without being asked.
+This skill should be run at the END of every working session AND immediately after any deploy or git push. Trigger words: "deploy", "done", "push it", "looks good", "commit", "close". If the session is ending and docs haven't been updated AND pushed — do it now without being asked.

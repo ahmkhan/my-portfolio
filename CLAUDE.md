@@ -46,6 +46,8 @@ public/
 └── profile.png                          # Pre-rendered circular profile card (500x500) — generated from profile-card.html
 resume-preview.html                      # HTML resume template (open in browser → print to PDF to regenerate)
 og-preview.html                          # Social card template → headless Chrome screenshot → public/og-image.png
+profile-card.html                        # Circular profile card template → headless Chrome screenshot → public/profile.png
+my-profile-image.png                     # Source profile photo (RGBA transparent PNG, 408x612) — kept in root, NOT public/
 src/
 ├── styles.scss                          # Global design system (variables, reset, animations)
 ├── index.html                           # Entry point — meta/OG tags, loader, Google Fonts
@@ -57,13 +59,13 @@ src/
 │   ├── services/
 │   │   └── scroll.service.ts            # Smooth scroll + active section tracking (signals)
 │   └── components/
-│       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo
+│       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo, GitHub icon link
 │       ├── hero/                        # Full-screen — dot grid bg, glow blob, orbit ring, particles, typing, Download CV button
 │       ├── about/                       # Profile photo (circular CSS frame) + summary text + stats cards
 │       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
 │       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
 │       ├── agentic-ai/                  # Learning journey topic cards
-│       ├── projects/                    # 3 real projects (Live / Private / In Progress)
+│       ├── projects/                    # 3 real projects (Live / Private / In Progress) — cards have Live + GitHub links
 │       └── contact/                     # Contact form (mailto:) + footer + social links
 ```
 
@@ -87,7 +89,9 @@ src/
 - Content should be accurate to the information in the PDF files
 - Static assets (images, icons, favicons) go in `public/` — Angular copies these to dist root
 - Contact form uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
-- **IMPORTANT — Self-Maintenance:** After every session where changes are made, run the `/sync-docs` skill to update both `CLAUDE.md` and `AGENTS.md`. Do NOT wait for the user to ask. If the session is ending (user says "deploy", "done", "push") and docs haven't been updated — do it immediately.
+- **IMPORTANT:** `background-image: url()` in Angular component SCSS cannot resolve `public/` assets — always use `<img src="...">` in templates instead
+- Profile photo in About uses `<img src="profile-photo.png">` with `top: -60px` offset to center face in circular frame
+- **MANDATORY — Doc Sync & Push:** After every session where changes are made (or on deploy/push/session close), run `/sync-docs` to update `CLAUDE.md` and `AGENTS.md`, then immediately `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`. Both steps are required — update AND push. Do NOT wait for the user to ask.
 
 ## Agentic AI Learning Progress
 Topics covered so far:
@@ -100,5 +104,6 @@ Topics covered so far:
 - Portfolio UI/UX audit — scoring, credibility review for LinkedIn/Upwork/Fiverr
 - Creating a professional HTML/PDF resume with headless Chrome PDF generation
 - Adding profile photo with CSS circular frame, glow border, and scroll animation
+- Adding GitHub icon link to navbar and GitHub repo links on project cards
 
 > This section will be updated as learning progresses.

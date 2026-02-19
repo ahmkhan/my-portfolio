@@ -8,6 +8,7 @@
 - Use data from `src/app/data/portfolio-data.ts` — never hardcode content in templates
 - Exception: `projects.component.ts` has its own `projects` array
 - `AppComponent` has `HostListener('window:scroll')`, `ngOnInit()` (loader removal), and `scrollToTop()` — be aware when modifying it
+- Navbar has a `.nav-github` anchor (external link → GitHub profile) placed between `.nav-links` and `.hamburger` — do not remove it when modifying the navbar
 - Keep SCSS scoped to the component, use CSS variables from `styles.scss`
 
 ## Agent: Style & Design
@@ -38,7 +39,9 @@
 - **Static assets** (images, SVGs, favicons, PDFs) go in `public/` — Angular copies them to the dist root. Do NOT put them in `src/` expecting them to be served
 - `Ahmer-Khan-CV.pdf` lives in `public/` — regenerate from `resume-preview.html` using headless Chrome: `chrome --headless --print-to-pdf=public/Ahmer-Khan-CV.pdf --print-to-pdf-no-header file:///path/to/resume-preview.html`
 - `og-image.png` lives in `public/` — regenerate from `og-preview.html` using headless Chrome: `chrome --headless --screenshot=public/og-image.png --window-size=1200,630 file:///path/to/og-preview.html`
+- `profile.png` lives in `public/` — regenerate from `profile-card.html` using headless Chrome: `chrome --headless --screenshot=public/profile.png --window-size=500,500 file:///path/to/profile-card.html`
 - SEO: `index.html` has full og: and twitter: meta tags including og:image pointing to the deployed PNG URL
+- **CRITICAL:** `background-image: url()` in Angular component SCSS does NOT resolve `public/` assets at runtime — always use `<img src="filename">` in the HTML template for images from `public/`
 
 ## Shared Rules
 1. Do not introduce technologies outside Ahmer's expertise without discussion
@@ -46,4 +49,9 @@
 3. Code should be clean enough for Ahmer to modify independently
 4. Always refer to CLAUDE.md for project context
 5. Ask before assuming on design or technical decisions
-6. **Self-Maintenance:** After every session where changes are made, run the `/sync-docs` skill to update both `CLAUDE.md` and `AGENTS.md`. Do not wait to be asked — this is mandatory. The skill file is at `.claude/skills/sync-docs.md`.
+6. **MANDATORY — Doc Sync & Push:** After every session where changes are made, AND on any deploy, push, or session close:
+   - Run `/sync-docs` to update `CLAUDE.md` and `AGENTS.md`
+   - Then run: `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`
+   - Both the UPDATE and the PUSH are required. Do not skip either step.
+   - Trigger words: "deploy", "done", "push", "looks good", "commit", "close"
+   - The skill file is at `.claude/skills/sync-docs.md`
