@@ -9,6 +9,9 @@
 - Exception: `projects.component.ts` has its own `projects` array
 - `AppComponent` has `HostListener('window:scroll')`, `ngOnInit()` (loader removal), and `scrollToTop()` — be aware when modifying it
 - Navbar has a `.nav-github` anchor (external link → GitHub profile) placed between `.nav-links` and `.hamburger` — do not remove it when modifying the navbar
+- Hero uses a two-column grid layout: `.hero-text` (left) + `.hero-photo` (right, 400px wide). Photo is hidden on mobile (≤768px). Do not revert to single-column centered layout.
+- Hero photo uses `.hero-photo-ring` (pulsing animation `hero-ring-pulse`) + `.hero-photo-circle` (340px, same glow border as About) + two accent dots. `top: -68px` on the img.
+- Section order is intentional: Hero → About → Agentic AI → Experience → Skills → Projects → Contact
 - Keep SCSS scoped to the component, use CSS variables from `styles.scss`
 
 ## Agent: Style & Design

@@ -63,11 +63,11 @@ src/
 │   │   └── scroll.service.ts            # Smooth scroll + active section tracking (signals)
 │   └── components/
 │       ├── navbar/                      # Fixed navbar, scroll-aware, mobile hamburger, gradient AK logo, GitHub icon link
-│       ├── hero/                        # Full-screen — dot grid bg, glow blob, orbit ring, particles, typing, Download CV button
+│       ├── hero/                        # Full-screen — two-column: text+CTA left, circular profile photo right; particles, typing, Download CV
 │       ├── about/                       # Profile photo (circular CSS frame) + summary text + stats cards
 │       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
 │       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
-│       ├── agentic-ai/                  # Learning journey topic cards
+│       ├── agentic-ai/                  # Learning journey topic cards — section order position 3 (after About)
 │       ├── projects/                    # 3 real projects (Live / Private / In Progress) — cards have Live + GitHub links
 │       └── contact/                     # Contact form (mailto:) + footer + social links
 ```
@@ -93,7 +93,10 @@ src/
 - Static assets (images, icons, favicons) go in `public/` — Angular copies these to dist root
 - Contact form uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
 - **IMPORTANT:** `background-image: url()` in Angular component SCSS cannot resolve `public/` assets — always use `<img src="...">` in templates instead
-- Profile photo in About uses `<img src="profile-photo.png">` with `top: -60px` offset to center face in circular frame
+- Profile photo in About uses `<img src="profile-photo.png">` with `top: -60px` offset to center face in circular frame (300px circle)
+- Profile photo also in Hero section: same technique, larger circle (340px), `top: -68px` — hidden on mobile (≤768px)
+- Hero layout: two-column grid (`1fr 400px`) — text left, photo right; collapses to single column on mobile
+- Section order: Hero → About → Agentic AI → Experience → Skills → Projects → Contact (Agentic AI moved up as current-focus USP)
 - **MANDATORY — Doc Sync & Push:** After every session where changes are made (or on deploy/push/session close): (1) update `MEMORY.md`, (2) update `CLAUDE.md` and `AGENTS.md`, (3) run `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`. All three steps required. MEMORY.md is local-only (no git). Do NOT wait for the user to ask.
 
 ## Agentic AI Learning Progress
