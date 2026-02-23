@@ -105,8 +105,9 @@ src/
 A separate full-stack demo project built as a portfolio piece to showcase MEAN stack + Agentic AI skills.
 
 - **Location:** `D:\laptopData\ai claude\ai-dev-assistant\` (separate repo from portfolio)
-- **Status:** Code complete — pending MongoDB Atlas credentials fix before first run
-- **Live deploy target:** Render.com (single Express service — serves Angular build)
+- **Status:** Live — deployed on Render.com
+- **Live URL:** https://ai-dev-assistant.onrender.com
+- **GitHub:** https://github.com/ahmkhan/ai-dev-assistant
 
 ### Tech Stack
 | Layer | Technology |
