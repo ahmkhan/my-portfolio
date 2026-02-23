@@ -56,7 +56,8 @@
 - **Dev workflow:** Run `backend/` with `npm start` + `frontend/` with `npx ng serve` (proxy.conf.json handles `/api` → `:3000`)
 - **Build for prod:** `cd frontend && npx ng build` — outputs to `backend/public/`, then `node app.js` serves everything
 - **Portfolio card:** when AI Dev Assistant is live, add it to `projects.component.ts` with the wording in CLAUDE.md
-- **MongoDB status:** credentials failing — see CLAUDE.md "Pending: MongoDB Fix" before running locally
+- **Live URL:** https://ai-dev-assistant.onrender.com (deployed and running)
+- **MongoDB:** connected and working on Atlas
 - **Rate limits:** 5 req/IP/day (backend express-rate-limit) + 2 queries/day (frontend cookie `demo_query_count`)
 - Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
 
