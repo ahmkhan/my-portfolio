@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'INPUT=$(cat); if echo \"$INPUT\" | grep -qE \"(CLAUDE\\.md|AGENTS\\.md)\"; then cd \"D:/laptopData/ai claude/my-portfolio\" && git add CLAUDE.md AGENTS.md && git diff --cached --quiet || git commit -m \"Auto-push: portfolio docs updated\" -m \"Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\" && git push origin main && echo \"[hook] Docs pushed.\"; fi'"
+            "command": "bash -c 'cd \"D:/laptopData/ai claude/my-portfolio\" && git status --porcelain 2>/dev/null | grep -qE \"(CLAUDE\\.md|AGENTS\\.md)\" && git add CLAUDE.md AGENTS.md && git diff --cached --quiet || (git commit -m \"Auto-push: portfolio docs updated\" -m \"Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\" && git push origin main && echo \"[hook] Docs pushed.\") || true'"
           }
         ]
       },
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'INPUT=$(cat); if echo \"$INPUT\" | grep -qE \"(CLAUDE\\.md|AGENTS\\.md)\"; then cd \"D:/laptopData/ai claude/my-portfolio\" && git add CLAUDE.md AGENTS.md && git diff --cached --quiet || git commit -m \"Auto-push: portfolio docs updated\" -m \"Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\" && git push origin main && echo \"[hook] Docs pushed.\"; fi'"
+            "command": "bash -c 'cd \"D:/laptopData/ai claude/my-portfolio\" && git status --porcelain 2>/dev/null | grep -qE \"(CLAUDE\\.md|AGENTS\\.md)\" && git add CLAUDE.md AGENTS.md && git diff --cached --quiet || (git commit -m \"Auto-push: portfolio docs updated\" -m \"Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\" && git push origin main && echo \"[hook] Docs pushed.\") || true'"
           }
         ]
       }
