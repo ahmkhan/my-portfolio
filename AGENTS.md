@@ -47,6 +47,19 @@
 - SEO: `index.html` has full og: and twitter: meta tags including og:image pointing to the deployed PNG URL
 - **CRITICAL:** `background-image: url()` in Angular component SCSS does NOT resolve `public/` assets at runtime — always use `<img src="filename">` in the HTML template for images from `public/`
 
+## Agent: AI Dev Assistant (Separate Project)
+**Purpose:** Work on the `ai-dev-assistant` project — a full-stack multi-agent coding tool.
+- **Location:** `D:\laptopData\ai claude\ai-dev-assistant\` (NOT inside my-portfolio)
+- **Backend:** Node.js + Express + Mongoose + Gemini 2.0 Flash — in `backend/`
+- **Frontend:** Angular 18 standalone — in `frontend/`, builds to `../backend/public/`
+- **Gemini model name:** `gemini-2.0-flash` — NOT `gemini-1.5-flash` (that 404s)
+- **Dev workflow:** Run `backend/` with `npm start` + `frontend/` with `npx ng serve` (proxy.conf.json handles `/api` → `:3000`)
+- **Build for prod:** `cd frontend && npx ng build` — outputs to `backend/public/`, then `node app.js` serves everything
+- **Portfolio card:** when AI Dev Assistant is live, add it to `projects.component.ts` with the wording in CLAUDE.md
+- **MongoDB status:** credentials failing — see CLAUDE.md "Pending: MongoDB Fix" before running locally
+- **Rate limits:** 5 req/IP/day (backend express-rate-limit) + 2 queries/day (frontend cookie `demo_query_count`)
+- Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
+
 ## Shared Rules
 1. Do not introduce technologies outside Ahmer's expertise without discussion
 2. All professional information must match the source PDFs

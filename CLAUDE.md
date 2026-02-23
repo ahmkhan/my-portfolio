@@ -100,6 +100,54 @@ src/
 - Section order: Hero → About → Agentic AI → Experience → Skills → Projects → Contact (Agentic AI moved up as current-focus USP)
 - **MANDATORY — Doc Sync & Push:** After every session where changes are made (or on deploy/push/session close): (1) update `MEMORY.md`, (2) update `CLAUDE.md` and `AGENTS.md`, (3) run `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`. All three steps required. MEMORY.md is local-only (no git). Do NOT wait for the user to ask.
 
+## AI Dev Assistant Project
+
+A separate full-stack demo project built as a portfolio piece to showcase MEAN stack + Agentic AI skills.
+
+- **Location:** `D:\laptopData\ai claude\ai-dev-assistant\` (separate repo from portfolio)
+- **Status:** Code complete — pending MongoDB Atlas credentials fix before first run
+- **Live deploy target:** Render.com (single Express service — serves Angular build)
+
+### Tech Stack
+| Layer | Technology |
+|---|---|
+| Frontend | Angular 18 standalone, SCSS (dark theme matching portfolio) |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas (Mongoose) |
+| AI | Google Gemini 2.0 Flash (`@google/generative-ai`) |
+| Rate Limiting | `express-rate-limit` (5 req/IP/day) + cookie (2 queries/day frontend) |
+
+### Architecture
+- `backend/app.js` — Express entry point; serves `backend/public/` as static files (Angular build)
+- `backend/src/routes/tasks.js` — `POST /api/tasks/run`, `GET /api/tasks/history`, `GET /api/tasks/:id`
+- `backend/src/controllers/taskController.js` — 3 sequential Gemini calls (Planner → Coder → Reviewer)
+- `backend/src/models/Task.js` — Mongoose schema: task, languages[], plannerOutput, coderOutput, reviewerOutput
+- `backend/src/middleware/rateLimiter.js` — express-rate-limit 5 req/IP/24h
+- `frontend/` — Angular 18, builds to `../backend/public/` (configured in angular.json)
+- `frontend/proxy.conf.json` — dev proxy: routes `/api` → `http://localhost:3000`
+
+### Agent System Prompts
+- **Planner:** "You are a software architect. Given a coding task and the selected technologies, produce a numbered step-by-step implementation plan. Be concise and technical."
+- **Coder:** "You are a senior software developer. Given a coding task, selected technologies, and an implementation plan, write clean, well-structured code. Include comments where necessary."
+- **Reviewer:** "You are a code reviewer. Given a coding task and the generated code, review it for bugs, security issues, best practices, and suggest improvements. Be specific and constructive."
+
+### Build & Deploy
+- **Build:** `cd frontend && npx ng build` → outputs to `backend/public/`
+- **Dev:** run `cd backend && npm start` + `cd frontend && npx ng serve` simultaneously
+- **Render deploy:** Root dir = repo root. Build: `cd frontend && npm install && npx ng build && cd ../backend && npm install`. Start: `node app.js` (backend dir). Env vars: `GEMINI_API_KEY`, `MONGODB_URI`, `PORT=10000`
+
+### Pending: MongoDB Fix
+Credentials in `backend/.env` fail authentication. Fix in MongoDB Atlas:
+1. Database Access → create user `ahmkhan2000_db_user` / password `Ps3tnRaxp6RXkG3g`
+2. Network Access → allow `0.0.0.0/0`
+OR update `MONGODB_URI` in `.env` with the correct connection string from Atlas.
+
+### Portfolio Card Wording (for projects.component.ts when ready to add)
+> "A multi-agent AI tool built with MEAN stack + Gemini API. Select your tech stack, describe any coding task — Planner breaks it down, Coder writes it, Reviewer audits it."
+> Tags: Angular 18 · Node.js · MongoDB · Gemini API · Render
+
+---
+
 ## Agentic AI Learning Progress
 Topics covered so far:
 - What is Agentic AI
@@ -112,5 +160,6 @@ Topics covered so far:
 - Creating a professional HTML/PDF resume with headless Chrome PDF generation
 - Adding profile photo with CSS circular frame, glow border, and scroll animation
 - Adding GitHub icon link to navbar and GitHub repo links on project cards
+- **Building a full-stack multi-agent AI demo project** (AI Dev Assistant — MEAN stack + Gemini API)
 
 > This section will be updated as learning progresses.
