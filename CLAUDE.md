@@ -118,7 +118,7 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 | Rate Limiting | `express-rate-limit` (5 req/IP/day) + cookie (2 queries/day frontend) |
 
 ### Architecture
-- `backend/app.js` — Express entry point; serves `backend/public/` as static files (Angular build)
+- `backend/app.js` — Express entry point; serves `backend/public/browser/` as static files (Angular 18 builder outputs to `browser/` subfolder)
 - `backend/src/routes/tasks.js` — `POST /api/tasks/run`, `GET /api/tasks/history`, `GET /api/tasks/:id`
 - `backend/src/controllers/taskController.js` — 3 sequential Gemini calls (Planner → Coder → Reviewer)
 - `backend/src/models/Task.js` — Mongoose schema: task, languages[], plannerOutput, coderOutput, reviewerOutput
