@@ -45,12 +45,12 @@ public/
 ├── favicon.svg                          # Primary SVG favicon (dark bg + cyan AK)
 ├── Ahmer-Khan-CV.pdf                    # Downloadable CV — generated from resume-preview.html
 ├── og-image.png                         # Social preview image (1200x630) — generated from og-preview.html
-├── profile-photo.png                    # Raw profile photo (RGBA transparent PNG, 408x612) — used in Hero section only (NOT About)
+├── profile-photo.png                    # Working copy of profile photo (RGBA transparent PNG, 408x612) — served by Angular, used in Hero section only (NOT About)
 └── profile.png                          # Pre-rendered circular profile card (500x500) — generated from profile-card.html
 resume-preview.html                      # HTML resume template (open in browser → print to PDF to regenerate)
 og-preview.html                          # Social card template → headless Chrome screenshot → public/og-image.png
 profile-card.html                        # Circular profile card template → headless Chrome screenshot → public/profile.png
-my-profile-image.png                     # Source profile photo (RGBA transparent PNG, 408x612) — kept in root, NOT public/
+my-profile-image.png                     # Master source photo (RGBA transparent PNG, 408x612) — kept in root (gitignored, not served). Copy to public/profile-photo.png to update the Hero photo.
 src/
 ├── styles.scss                          # Global design system (variables, reset, animations)
 ├── index.html                           # Entry point — meta/OG tags, loader, Google Fonts
