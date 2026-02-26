@@ -159,5 +159,6 @@ Topics covered so far:
 - Adding profile photo with CSS circular frame, glow border, and scroll animation
 - Adding GitHub icon link to navbar and GitHub repo links on project cards
 - **Building a full-stack multi-agent AI demo project** (AI Dev Assistant — MEAN stack + Gemini API)
+- **Context management and doc hygiene** — context rot analysis (poisoning, distraction, confusion, clash), iterative cleanup of CLAUDE.md and MEMORY.md, .gitignore hygiene
 
 > This section will be updated as learning progresses.
