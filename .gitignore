@@ -53,3 +53,6 @@ my-profile-image.png
 
 # Claude Code — tracked intentionally (skills, settings)
 # .claude/
+
+# Claude Code local settings (machine-specific, not for git)
+.claude/settings.local.json
