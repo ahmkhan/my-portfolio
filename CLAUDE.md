@@ -99,6 +99,7 @@ src/
 - Hero layout: two-column grid (`1fr 400px`) — text left, photo right; collapses to single column on mobile
 - Section order: Hero → About → Agentic AI → Experience → Skills → Projects → Contact (Agentic AI moved up as current-focus USP)
 - **MANDATORY — Doc Sync & Push:** After every session where changes are made (or on deploy/push/session close): (1) update `MEMORY.md`, (2) update `CLAUDE.md` and `AGENTS.md`, (3) run `git add CLAUDE.md AGENTS.md && git commit -m "Update docs" && git push origin main`. All three steps required. MEMORY.md is local-only (no git). Do NOT wait for the user to ask.
+- **Known build warning:** `hero.component.scss` exceeds the Angular budget by ~747 bytes (6.89 kB vs 6.14 kB limit). This is a known, accepted overage — do not attempt to fix it unless Ahmer explicitly asks.
 
 ## AI Dev Assistant Project
 
