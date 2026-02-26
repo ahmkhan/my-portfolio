@@ -68,7 +68,7 @@ src/
 │       ├── experience/                  # Vertical timeline, 5 roles, pulsing dots, hover accent
 │       ├── skills/                      # Skill bars animate on scroll (CSS custom property technique)
 │       ├── agentic-ai/                  # Learning journey topic cards — section order position 3 (after About)
-│       ├── projects/                    # 3 real projects (Live / Private / In Progress) — cards have Live + GitHub links
+│       ├── projects/                    # 4 projects — cards have Live + GitHub links
 │       └── contact/                     # Contact form (mailto:) + footer + social links
 ```
 
