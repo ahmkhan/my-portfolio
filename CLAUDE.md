@@ -125,7 +125,7 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 - `backend/src/controllers/taskController.js` — 3 sequential Gemini calls (Planner → Coder → Reviewer)
 - `backend/src/models/Task.js` — Mongoose schema: task, languages[], plannerOutput, coderOutput, reviewerOutput
 - `backend/src/middleware/rateLimiter.js` — express-rate-limit 5 req/IP/24h
-- `frontend/` — Angular 18, builds to `../backend/public/` (configured in angular.json)
+- `frontend/` — Angular 18, builds to `../backend/public/browser/` (angular.json sets output to `../backend/public/`, Angular 18 app builder appends `browser/` subfolder)
 - `frontend/proxy.conf.json` — dev proxy: routes `/api` → `http://localhost:3000`
 
 ### Agent System Prompts
