@@ -140,9 +140,8 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 ### MongoDB: Working
 MongoDB Atlas credentials confirmed working. Auth is resolved.
 
-### Portfolio Card Wording
-> "A multi-agent AI tool built with MEAN stack + Gemini API. Select your tech stack, describe any coding task — Planner breaks it down, Coder writes it, Reviewer audits it."
-> Tags: Angular 18 · Node.js · MongoDB · Gemini API · Render
+### Portfolio Card
+Added to `projects.component.ts` — Live status, links to https://ai-dev-assistant.onrender.com and https://github.com/ahmkhan/ai-dev-assistant.
 
 ---
 
