@@ -91,8 +91,8 @@ src/
 - Exception: `projects.component.ts` holds its own `projects` array (not in portfolio-data.ts)
 - Content should be accurate to the information in the PDF files
 - Static assets (images, icons, favicons) go in `public/` — Angular copies these to dist root
-- Contact form uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
-- Email social button uses `copyEmail()` (clipboard API) NOT a mailto link — shows "Copied!" for 2s. Do not revert to mailto.
+- **Contact form** (in contact section) uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
+- **Email social button** (in contact footer social links) uses `copyEmail()` (clipboard API) NOT a mailto link — shows "Copied!" for 2s. Do not revert to mailto. These are two separate UI elements with different behaviors.
 - **IMPORTANT:** `background-image: url()` in Angular component SCSS cannot resolve `public/` assets — always use `<img src="...">` in templates instead
 - Profile photo appears ONLY in the Hero section — it was intentionally removed from About to avoid repetition
 - Profile photo also in Hero section: same technique, larger circle (340px), `top: -68px` — hidden on mobile (≤768px)
