@@ -137,13 +137,10 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 - **Dev:** run `cd backend && npm start` + `cd frontend && npx ng serve` simultaneously
 - **Render deploy:** Root dir = repo root. Build: `cd frontend && npm install && npx ng build && cd ../backend && npm install`. Start: `node app.js` (backend dir). Env vars: `GEMINI_API_KEY`, `MONGODB_URI`, `PORT=10000`
 
-### Pending: MongoDB Fix
-Credentials in `backend/.env` fail authentication. Fix in MongoDB Atlas:
-1. Database Access → create user `ahmkhan2000_db_user` / password `Ps3tnRaxp6RXkG3g`
-2. Network Access → allow `0.0.0.0/0`
-OR update `MONGODB_URI` in `.env` with the correct connection string from Atlas.
+### MongoDB: Working
+MongoDB Atlas credentials confirmed working. Auth is resolved.
 
-### Portfolio Card Wording (for projects.component.ts when ready to add)
+### Portfolio Card Wording
 > "A multi-agent AI tool built with MEAN stack + Gemini API. Select your tech stack, describe any coding task — Planner breaks it down, Coder writes it, Reviewer audits it."
 > Tags: Angular 18 · Node.js · MongoDB · Gemini API · Render
 
