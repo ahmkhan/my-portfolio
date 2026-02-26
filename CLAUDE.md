@@ -45,7 +45,7 @@ public/
 ├── favicon.svg                          # Primary SVG favicon (dark bg + cyan AK)
 ├── Ahmer-Khan-CV.pdf                    # Downloadable CV — generated from resume-preview.html
 ├── og-image.png                         # Social preview image (1200x630) — generated from og-preview.html
-├── profile-photo.png                    # Raw profile photo (RGBA transparent PNG, 408x612) — used in About section
+├── profile-photo.png                    # Raw profile photo (RGBA transparent PNG, 408x612) — used in Hero section only (NOT About)
 └── profile.png                          # Pre-rendered circular profile card (500x500) — generated from profile-card.html
 resume-preview.html                      # HTML resume template (open in browser → print to PDF to regenerate)
 og-preview.html                          # Social card template → headless Chrome screenshot → public/og-image.png
