@@ -41,6 +41,11 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Working screenshots (temp files, not project assets)
+Screenshot_*.png
+live-*.png
+my-profile-image.png
+
 # Personal documents (keep source PDFs out of git)
 *.pdf
 # Exception: generated CV in public/ is a project asset

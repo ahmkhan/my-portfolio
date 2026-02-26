@@ -27,6 +27,14 @@ export class ProjectsComponent {
       githubLink: null,
     },
     {
+      title: 'AI Dev Assistant',
+      description: 'A multi-agent AI coding tool built with MEAN stack + Gemini API. Select your tech stack, describe any coding task — Planner breaks it down, Coder writes it, Reviewer audits it.',
+      tags: ['Angular 18', 'Node.js', 'MongoDB', 'Gemini API', 'Render'],
+      status: 'Live',
+      link: 'https://ai-dev-assistant.onrender.com',
+      githubLink: 'https://github.com/ahmkhan/ai-dev-assistant',
+    },
+    {
       title: 'Agentic AI Exploration',
       description: 'Actively learning and building with Claude Code — exploring agentic workflows, MCP servers, and AI-assisted full-stack development. Combining 20+ years of MEAN stack expertise with next-gen AI tooling.',
       tags: ['Claude Code', 'Agentic AI', 'MCP', 'MEAN Stack'],
