@@ -134,7 +134,7 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 - **Reviewer:** "You are a code reviewer. Given a coding task and the generated code, review it for bugs, security issues, best practices, and suggest improvements. Be specific and constructive."
 
 ### Build & Deploy
-- **Build:** `cd frontend && npx ng build` → outputs to `backend/public/`
+- **Build:** `cd frontend && npx ng build` → outputs to `backend/public/browser/` (Angular 18 adds `browser/` subfolder — Express serves `public/browser/`, not `public/`)
 - **Dev:** run `cd backend && npm start` + `cd frontend && npx ng serve` simultaneously
 - **Render deploy:** Root dir = repo root. Build: `cd frontend && npm install && npx ng build && cd ../backend && npm install`. Start: `node app.js` (backend dir). Env vars: `GEMINI_API_KEY`, `MONGODB_URI`, `PORT=10000`
 
