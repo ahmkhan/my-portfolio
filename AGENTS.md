@@ -61,6 +61,16 @@
 - **Rate limits:** 5 req/IP/day (backend express-rate-limit) + 2 queries/day (frontend cookie `demo_query_count`)
 - Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
 
+## Agent: RAG CV Chatbot (Separate Project)
+**Purpose:** Work on the `rag-cv-chatbot` project — a RAG chatbot that answers questions about Ahmer's CV.
+- **Location:** `D:\laptopData\ai claude\rag-cv-chatbot\` (NOT inside my-portfolio)
+- **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
+- **Stack:** Angular 18 + Node.js/Express + Gemini (`gemini-embedding-001` + `gemini-2.0-flash`) + Pinecone
+- **Pinecone index:** `cv-chatbot`, 768 dimensions, cosine metric, AWS us-east-1
+- **Status:** Setup phase — next step is Step 3 (npm init + test embeddings)
+- **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
+- Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
+
 ## Shared Rules
 1. Do not introduce technologies outside Ahmer's expertise without discussion
 2. All professional information must match the source PDFs
