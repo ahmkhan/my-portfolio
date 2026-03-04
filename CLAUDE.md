@@ -160,5 +160,15 @@ Topics covered so far:
 - Adding GitHub icon link to navbar and GitHub repo links on project cards
 - **Building a full-stack multi-agent AI demo project** (AI Dev Assistant — MEAN stack + Gemini API)
 - **Context management and doc hygiene** — context rot analysis (poisoning, distraction, confusion, clash), iterative cleanup of CLAUDE.md and MEMORY.md, .gitignore hygiene
+- **RAG (Retrieval-Augmented Generation)** — learning in progress: embeddings, vector databases, chunking, Pinecone, RAG pipeline (ingest + query). Building a CV chatbot as portfolio project.
+- **Skills, hooks, sub-agents setup** — created `context-rot-check` skill (generic, works across projects), fixed Ralph Loop stop hook error, installed jq
 
 > This section will be updated as learning progresses.
+
+## RAG CV Chatbot Project — IN PROGRESS
+- **Location:** `D:\laptopData\ai claude\rag-cv-chatbot\`
+- **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
+- **Status:** Setup phase — CLAUDE.md, AGENTS.md, .gitignore, pre-commit hook done
+- **Next step:** Step 3 — npm init, install dependencies, test Gemini embeddings
+- **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
+- **Stack:** Angular 18 + Node.js/Express + Gemini + Pinecone (all free tier)
