@@ -52,7 +52,7 @@
 - **Location:** `D:\laptopData\ai claude\ai-dev-assistant\` (NOT inside my-portfolio)
 - **Backend:** Node.js + Express + Mongoose + Gemini 2.0 Flash — in `backend/`
 - **Frontend:** Angular 18 standalone — in `frontend/`, builds to `../backend/public/`
-- **Gemini model name:** `gemini-2.0-flash` — NOT `gemini-1.5-flash` (that 404s)
+- **Gemini model name:** was `gemini-2.0-flash`, which Google shut down on 2026-06-01 — must be switched to a current Flash model (pending; live demo likely failing)
 - **Dev workflow:** Run `backend/` with `npm start` + `frontend/` with `npx ng serve` (proxy.conf.json handles `/api` → `:3000`)
 - **Build for prod:** `cd frontend && npx ng build` — outputs to `backend/public/`, then `node app.js` serves everything
 - **Portfolio card:** when AI Dev Assistant is live, add it to `projects.component.ts` with the wording in CLAUDE.md
@@ -65,11 +65,14 @@
 **Purpose:** Work on the `rag-cv-chatbot` project — a RAG chatbot that answers questions about Ahmer's CV.
 - **Location:** `D:\laptopData\ai claude\rag-cv-chatbot\` (NOT inside my-portfolio)
 - **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
-- **Stack:** Angular 18 + Node.js/Express + Gemini (`gemini-embedding-001` + `gemini-2.0-flash`) + Pinecone
+- **Stack:** Angular 18 + Node.js/Express + Gemini (`gemini-embedding-001` at 768 dims + a current Flash chat model — NOT `gemini-2.0-flash`, shut down 2026-06-01) + Pinecone, via `@google/genai` SDK
 - **Pinecone index:** `cv-chatbot`, 768 dimensions, cosine metric, AWS us-east-1
 - **Status:** Setup phase — next step is Step 3 (npm init + test embeddings)
 - **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
 - Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
+
+## Private planning agents
+Local-only agents and hooks (gitignored) are described in `CLAUDE.local.md`. This repo is public — never add private business details to tracked files.
 
 ## Shared Rules
 1. Do not introduce technologies outside Ahmer's expertise without discussion

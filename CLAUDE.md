@@ -138,6 +138,9 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 - **Dev:** run `cd backend && npm start` + `cd frontend && npx ng serve` simultaneously
 - **Render deploy:** Root dir = repo root. Build: `cd frontend && npm install && npx ng build && cd ../backend && npm install`. Start: `node app.js` (backend dir). Env vars: `GEMINI_API_KEY`, `MONGODB_URI`, `PORT=10000`
 
+### ⚠️ Gemini 2.0 Flash shut down (1 June 2026)
+Google retired `gemini-2.0-flash` on 2026-06-01 — the live demo's Gemini calls will fail until the model is switched to a current Flash model (found 2026-10-08, not yet fixed or verified on the live site).
+
 ### MongoDB: Working
 MongoDB Atlas credentials confirmed working. Auth is resolved.
 
@@ -162,8 +165,12 @@ Topics covered so far:
 - **Context management and doc hygiene** — context rot analysis (poisoning, distraction, confusion, clash), iterative cleanup of CLAUDE.md and MEMORY.md, .gitignore hygiene
 - **RAG (Retrieval-Augmented Generation)** — learning in progress: embeddings, vector databases, chunking, Pinecone, RAG pipeline (ingest + query). Building a CV chatbot as portfolio project.
 - **Skills, hooks, sub-agents setup** — created `context-rot-check` skill (generic, works across projects), fixed Ralph Loop stop hook error, installed jq
+- **AI product strategy & market research** — what clients hire for in AI, marketplaces vs. services income, compliance basics, go-to-market and validation-first planning
 
 > This section will be updated as learning progresses.
+
+## Private product planning
+This repo is public. Any private planning lives in `CLAUDE.local.md` (gitignored, loaded automatically) and local memory — never copy it into CLAUDE.md, AGENTS.md or other tracked files.
 
 ## RAG CV Chatbot Project — IN PROGRESS
 - **Location:** `D:\laptopData\ai claude\rag-cv-chatbot\`
@@ -172,3 +179,4 @@ Topics covered so far:
 - **Next step:** Step 3 — npm init, install dependencies, test Gemini embeddings
 - **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
 - **Stack:** Angular 18 + Node.js/Express + Gemini + Pinecone (all free tier)
+- **Model update needed:** chat model must NOT be `gemini-2.0-flash` (shut down 2026-06-01); use a current Flash model. Embeddings: `gemini-embedding-001` with `outputDimensionality: 768` (Pinecone index is 768-dim). Use the `@google/genai` SDK.
