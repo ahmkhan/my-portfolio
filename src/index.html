@@ -70,10 +70,10 @@
 
   <!-- CV chatbot widget (RAG project: github.com/ahmkhan/rag-cv-chatbot).
        Locally it loads from the API on localhost:3000. On the live site it loads from the
-       deployed API — PRODUCTION_WIDGET_URL is set in Step 6 (deploy); until then, no widget. -->
+       deployed API on Render (rag-cv-chatbot.onrender.com, free tier: may need ~1 min to wake). -->
   <script>
     (function () {
-      var PRODUCTION_WIDGET_URL = ''; // e.g. 'https://<your-api>.onrender.com/widget.js'
+      var PRODUCTION_WIDGET_URL = 'https://rag-cv-chatbot.onrender.com/widget.js';
       var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
       var src = isLocal ? 'http://localhost:3000/widget.js' : PRODUCTION_WIDGET_URL;
       if (!src) return;
