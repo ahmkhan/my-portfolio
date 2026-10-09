@@ -175,8 +175,8 @@ This repo is public. Any private planning lives in `CLAUDE.local.md` (gitignored
 ## RAG CV Chatbot Project — IN PROGRESS
 - **Location:** `D:\laptopData\ai claude\rag-cv-chatbot\`
 - **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
-- **Status:** Setup phase — CLAUDE.md, AGENTS.md, .gitignore, pre-commit hook done
-- **Next step:** Step 3 — npm init, install dependencies, test Gemini embeddings
+- **Status:** Step 3 done (2026-10-09) — `backend/` with `@google/genai` + `dotenv`; `test-embedding.js` returns a 768-dim vector
+- **Next step:** Step 4 — parse CV PDF → chunk → embed → upsert to Pinecone → query
 - **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
 - **Stack:** Angular 18 + Node.js/Express + Gemini + Pinecone (all free tier)
 - **Model update needed:** chat model must NOT be `gemini-2.0-flash` (shut down 2026-06-01); use a current Flash model. Embeddings: `gemini-embedding-001` with `outputDimensionality: 768` (Pinecone index is 768-dim). Use the `@google/genai` SDK.
