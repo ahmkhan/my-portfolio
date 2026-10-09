@@ -63,6 +63,9 @@ my-profile-image.png
 # Daily market-watch hook stamp (machine-local)
 .claude/.market-watch-last
 
+# Private screenshots shared with Claude (may show account details)
+images/
+
 # Private business planning — never publish (repo is public)
 CLAUDE.local.md
 .claude/agents/
