@@ -67,5 +67,23 @@
     <div class="loader-ring"></div>
   </div>
   <app-root></app-root>
+
+  <!-- CV chatbot widget (RAG project: github.com/ahmkhan/rag-cv-chatbot).
+       Locally it loads from the API on localhost:3000. On the live site it loads from the
+       deployed API — PRODUCTION_WIDGET_URL is set in Step 6 (deploy); until then, no widget. -->
+  <script>
+    (function () {
+      var PRODUCTION_WIDGET_URL = ''; // e.g. 'https://<your-api>.onrender.com/widget.js'
+      var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      var src = isLocal ? 'http://localhost:3000/widget.js' : PRODUCTION_WIDGET_URL;
+      if (!src) return;
+      var script = document.createElement('script');
+      script.src = src;
+      script.defer = true;
+      script.setAttribute('data-title', 'Ask about my CV');
+      script.setAttribute('data-bottom', '90'); // sit above the back-to-top button
+      document.body.appendChild(script);
+    })();
+  </script>
 </body>
 </html>
