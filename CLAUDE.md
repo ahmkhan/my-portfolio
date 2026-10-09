@@ -176,8 +176,8 @@ This repo is public. Any private planning lives in `CLAUDE.local.md` (gitignored
 - **Location:** `D:\laptopData\ai claude\rag-cv-chatbot\`
 - **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
 - **Status:** Steps 3–5 done (2026-10-09) — ingest pipeline, grounded answers (gemini-3.6-flash + fallback), Express API (`POST /api/chat`, rate-limited, CORS allow-list), embeddable widget `backend/public/widget.js`
-- **Portfolio integration:** `src/index.html` has a loader script — on localhost it loads `http://localhost:3000/widget.js`; on the live site it loads `PRODUCTION_WIDGET_URL` (empty until Step 6, so no widget yet). `data-bottom="90"` keeps the bubble above the back-to-top button.
-- **Next step:** Step 6 — deploy the API (Render), set `PRODUCTION_WIDGET_URL`, add the live origin to `ALLOWED_ORIGINS`, rebuild + deploy the portfolio
+- **Step 6 done (2026-10-09):** API live at https://rag-cv-chatbot.onrender.com (Render free tier, auto-deploy from `main`, root dir `backend`). Chat bubble is LIVE on the portfolio.
+- **Portfolio integration:** `src/index.html` has a loader script — on localhost it loads `http://localhost:3000/widget.js`; on the live site it loads `https://rag-cv-chatbot.onrender.com/widget.js`. `data-bottom="90"` keeps the bubble above the back-to-top button. Free tier sleeps when idle — first answer can take up to ~1 minute.
 - **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
 - **Stack:** Angular 18 + Node.js/Express + Gemini + Pinecone (all free tier)
 - **Model update needed:** chat model must NOT be `gemini-2.0-flash` (shut down 2026-06-01); use a current Flash model. Embeddings: `gemini-embedding-001` with `outputDimensionality: 768` (Pinecone index is 768-dim). Use the `@google/genai` SDK.
