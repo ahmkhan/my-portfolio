@@ -50,9 +50,9 @@
 ## Agent: AI Dev Assistant (Separate Project)
 **Purpose:** Work on the `ai-dev-assistant` project — a full-stack multi-agent coding tool.
 - **Location:** `D:\laptopData\ai claude\ai-dev-assistant\` (NOT inside my-portfolio)
-- **Backend:** Node.js + Express + Mongoose + Gemini 2.0 Flash — in `backend/`
+- **Backend:** Node.js + Express + Mongoose + Gemini (was 2.0 Flash, now retired — see below) — in `backend/`
 - **Frontend:** Angular 18 standalone — in `frontend/`, builds to `../backend/public/`
-- **Gemini model name:** was `gemini-2.0-flash`, which Google shut down on 2026-06-01 — must be switched to a current Flash model (pending; live demo likely failing)
+- **Gemini model name:** was `gemini-2.0-flash`, which Google shut down on 2026-06-01 — must be switched to a current Flash model (pending; live demo likely failing). Per Google's deprecations page (2026-10-20) new projects should use `gemini-3.8-flash` (or `gemini-3.6-flash` as used in the RAG chatbot); verify on the official page first
 - **Dev workflow:** Run `backend/` with `npm start` + `frontend/` with `npx ng serve` (proxy.conf.json handles `/api` → `:3000`)
 - **Build for prod:** `cd frontend && npx ng build` — outputs to `backend/public/`, then `node app.js` serves everything
 - **Portfolio card:** when AI Dev Assistant is live, add it to `projects.component.ts` with the wording in CLAUDE.md
@@ -67,8 +67,8 @@
 - **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
 - **Stack:** Angular 18 + Node.js/Express + Gemini (`gemini-embedding-001` at 768 dims + a current Flash chat model — NOT `gemini-2.0-flash`, shut down 2026-06-01) + Pinecone, via `@google/genai` SDK
 - **Pinecone index:** `cv-chatbot`, 768 dimensions, cosine metric, AWS us-east-1
-- **Status:** Setup phase — next step is Step 3 (npm init + test embeddings)
-- **Teaching mode:** Ahmer does all steps manually, Claude reviews and guides
+- **Status:** LIVE (Steps 1–6 done 2026-10-09) — API at https://rag-cv-chatbot.onrender.com, chat widget embedded in the portfolio via the loader in `src/index.html`. Possible follow-up: add it as a project card
+- **Workflow:** Ahmer does all setup (installs, keys, folders); Claude writes the code with comments; Ahmer reviews
 - Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
 
 ## Private planning agents

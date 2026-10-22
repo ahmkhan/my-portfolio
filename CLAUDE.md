@@ -91,6 +91,7 @@ src/
 - Exception: `projects.component.ts` holds its own `projects` array (not in portfolio-data.ts)
 - Content should be accurate to the information in the PDF files
 - Static assets (images, icons, favicons) go in `public/` — Angular copies these to dist root
+- `images/` (repo root, gitignored) is Ahmer's local screenshot drop folder — he names a file (e.g. `Screenshot_14.png`) and Claude reads it. Pasted chat images can show a stale screenshot, so read the named file. Never commit this folder.
 - **Contact form** (in contact section) uses `window.location.href = 'mailto:...'` — no backend, no Formspree needed
 - **Email social button** (in contact footer social links) uses `copyEmail()` (clipboard API) NOT a mailto link — shows "Copied!" for 2s. Do not revert to mailto. These are two separate UI elements with different behaviors.
 - **IMPORTANT:** `background-image: url()` in Angular component SCSS cannot resolve `public/` assets — always use `<img src="...">` in templates instead
@@ -139,7 +140,7 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 - **Render deploy:** Root dir = repo root. Build: `cd frontend && npm install && npx ng build && cd ../backend && npm install`. Start: `node app.js` (backend dir). Env vars: `GEMINI_API_KEY`, `MONGODB_URI`, `PORT=10000`
 
 ### ⚠️ Gemini 2.0 Flash shut down (1 June 2026)
-Google retired `gemini-2.0-flash` on 2026-06-01 — the live demo's Gemini calls will fail until the model is switched to a current Flash model (found 2026-10-08, not yet fixed or verified on the live site).
+Google retired `gemini-2.0-flash` on 2026-06-01 — the live demo's Gemini calls will fail until the model is switched to a current Flash model (found 2026-10-08, not yet fixed or verified on the live site). Google's deprecations page (updated 2026-10-20): 2.5 Flash/Pro have no shutdown date but are limited to existing users; new projects are pointed to `gemini-3.8-flash` / `gemini-3.5-flash-lite`. Check the official page, not blogs, before choosing.
 
 ### MongoDB: Working
 MongoDB Atlas credentials confirmed working. Auth is resolved.
@@ -166,6 +167,7 @@ Topics covered so far:
 - **RAG (Retrieval-Augmented Generation)** — learning in progress: embeddings, vector databases, chunking, Pinecone, RAG pipeline (ingest + query). Building a CV chatbot as portfolio project.
 - **Skills, hooks, sub-agents setup** — created `context-rot-check` skill (generic, works across projects), fixed Ralph Loop stop hook error, installed jq
 - **AI product strategy & market research** — what clients hire for in AI, marketplaces vs. services income, compliance basics, go-to-market and validation-first planning
+- **Brand account setup & security** — platform naming rules (e.g. Facebook personal profiles need a real name; brands use Pages), authenticator-app 2FA + recovery codes, keeping brand accounts separate from personal ones
 
 > This section will be updated as learning progresses.
 
