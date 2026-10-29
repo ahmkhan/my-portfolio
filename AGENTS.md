@@ -67,6 +67,8 @@
 - **Repo:** https://github.com/ahmkhan/rag-cv-chatbot
 - **Stack:** Angular 18 + Node.js/Express + Gemini (`gemini-embedding-001` at 768 dims + a current Flash chat model — NOT `gemini-2.0-flash`, shut down 2026-06-01) + Pinecone, via `@google/genai` SDK
 - **Pinecone index:** `cv-chatbot`, 768 dimensions, cosine metric, AWS us-east-1
+- **New Pinecone indexes (console changed, 2026-10):** the create form is now schema-based and defaults to Pinecone's built-in embedding model (1024 dims). For our own Gemini vectors, the schema must contain ONLY a dense-vector field named `_values` (768 dims, cosine) — that creates a classic vector index that works with `upsert({ records })` / `query({ vector })`
+- **`.env` protection:** only `.gitignore` protects `.env` here — there is no pre-commit hook in this repo (checked 2026-10-29); adding one is optional
 - **Status:** LIVE (Steps 1–6 done 2026-10-09) — API at https://rag-cv-chatbot.onrender.com, chat widget embedded in the portfolio via the loader in `src/index.html`. Possible follow-up: add it as a project card
 - **Workflow:** Ahmer does all setup (installs, keys, folders); Claude writes the code with comments; Ahmer reviews
 - Do NOT add this project's files into the portfolio repo — it is a completely separate codebase
