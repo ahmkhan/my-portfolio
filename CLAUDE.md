@@ -168,6 +168,7 @@ Topics covered so far:
 - **Skills, hooks, sub-agents setup** — created `context-rot-check` skill (generic, works across projects), fixed Ralph Loop stop hook error, installed jq
 - **AI product strategy & market research** — what clients hire for in AI, marketplaces vs. services income, compliance basics, go-to-market and validation-first planning
 - **Brand account setup & security** — platform naming rules (e.g. Facebook personal profiles need a real name; brands use Pages), authenticator-app 2FA + recovery codes, keeping brand accounts separate from personal ones
+- **Multi-tenant RAG + agent tool use** — one vector namespace per tenant, chunking by headings, chat history for follow-ups; Gemini function calling (the model asks to run a tool, code validates and saves, errors go back to the model); GitHub organizations with enforced 2FA; git pre-commit hook to block `.env`
 
 > This section will be updated as learning progresses.
 
