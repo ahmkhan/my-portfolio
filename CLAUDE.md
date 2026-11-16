@@ -140,7 +140,7 @@ A separate full-stack demo project built as a portfolio piece to showcase MEAN s
 - **Render deploy:** Root dir = repo root. Build: `cd frontend && npm install && npx ng build && cd ../backend && npm install`. Start: `node app.js` (backend dir). Env vars: `GEMINI_API_KEY`, `MONGODB_URI`, `PORT=10000`
 
 ### ⚠️ Gemini 2.0 Flash shut down (1 June 2026)
-Google retired `gemini-2.0-flash` on 2026-06-01 — the live demo's Gemini calls will fail until the model is switched to a current Flash model (found 2026-10-08, not yet fixed or verified on the live site). Google's deprecations page (updated 2026-10-20): 2.5 Flash/Pro have no shutdown date but are limited to existing users; new projects are pointed to `gemini-3.8-flash` / `gemini-3.5-flash-lite`. Check the official page, not blogs, before choosing.
+Google retired `gemini-2.0-flash` on 2026-06-01 — the live demo's Gemini calls will fail until the model is switched to a current Flash model (found 2026-10-08, not yet fixed or verified on the live site). Google's deprecations page (updated 2026-10-20): 2.5 Flash/Pro have no shutdown date but are limited to existing users; new projects are pointed to `gemini-3.8-flash` / `gemini-3.5-flash-lite`. Check the official page, not blogs, before choosing. Update 2026-11-16: Google now lists `gemini-2.5-flash` and `gemini-2.5-pro` for shutdown on 2026-12-01 — do not switch to 2.5.
 
 ### MongoDB: Working
 MongoDB Atlas credentials confirmed working. Auth is resolved.
@@ -169,6 +169,9 @@ Topics covered so far:
 - **AI product strategy & market research** — what clients hire for in AI, marketplaces vs. services income, compliance basics, go-to-market and validation-first planning
 - **Brand account setup & security** — platform naming rules (e.g. Facebook personal profiles need a real name; brands use Pages), authenticator-app 2FA + recovery codes, keeping brand accounts separate from personal ones
 - **Multi-tenant RAG + agent tool use** — one vector namespace per tenant, chunking by headings, chat history for follow-ups; Gemini function calling (the model asks to run a tool, code validates and saves, errors go back to the model); GitHub organizations with enforced 2FA; git pre-commit hook to block `.env`
+- **Custom-domain email & deliverability** — domain verification TXT, MX records, one SPF record only, DKIM selector, DMARC (`p=none` first); checking "Show original" in Gmail for SPF/DKIM/DMARC PASS
+- **Product direction & go-to-market fit** — validation-first vs. self-serve; choosing inbound channels (website content, marketplaces, plugin directories, freelance platforms) that fit your own strengths; AI agents that draft marketing for human approval
+- **Static marketing site + brand basics** — plain HTML/CSS site with light/dark mode, plain-language privacy policy and terms for a beta, security headers, sitemap; logo design as SVG (concepts → refinement → one-colour print version)
 
 > This section will be updated as learning progresses.
 

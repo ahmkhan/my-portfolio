@@ -52,7 +52,7 @@
 - **Location:** `D:\laptopData\ai claude\ai-dev-assistant\` (NOT inside my-portfolio)
 - **Backend:** Node.js + Express + Mongoose + Gemini (was 2.0 Flash, now retired — see below) — in `backend/`
 - **Frontend:** Angular 18 standalone — in `frontend/`, builds to `../backend/public/`
-- **Gemini model name:** was `gemini-2.0-flash`, which Google shut down on 2026-06-01 — must be switched to a current Flash model (pending; live demo likely failing). Per Google's deprecations page (2026-10-20) new projects should use `gemini-3.8-flash` (or `gemini-3.6-flash` as used in the RAG chatbot); verify on the official page first
+- **Gemini model name:** was `gemini-2.0-flash`, which Google shut down on 2026-06-01 — must be switched to a current Flash model (pending; live demo likely failing). Per Google's deprecations page (2026-10-20) new projects should use `gemini-3.8-flash` (or `gemini-3.6-flash` as used in the RAG chatbot); verify on the official page first. Do NOT use `gemini-2.5-flash`/`-pro`: Google lists them for shutdown on 2026-12-01 (deprecations page, checked 2026-11-16)
 - **Dev workflow:** Run `backend/` with `npm start` + `frontend/` with `npx ng serve` (proxy.conf.json handles `/api` → `:3000`)
 - **Build for prod:** `cd frontend && npx ng build` — outputs to `backend/public/`, then `node app.js` serves everything
 - **Portfolio card:** when AI Dev Assistant is live, add it to `projects.component.ts` with the wording in CLAUDE.md
